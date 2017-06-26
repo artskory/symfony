@@ -1,7 +1,7 @@
 # Learn more about services, parameters and containers at
 # https://symfony.com/doc/current/service_container.html
 parameters:
-    #parameter_name: value
+    suite: ' [...]'
 
 services:
     # default configuration for services in *this* file
@@ -30,6 +30,7 @@ services:
         tags: ['controller.service_arguments']
 
     # add more services, or override services that need manual wiring
-    # AppBundle\Service\ExampleService:
-    #     arguments:
-    #         $someArgument: 'some_value'
+    AppBundle\Service\Extrait:
+        arguments:
+            $max: 15
+            $suite: '%suite%'
