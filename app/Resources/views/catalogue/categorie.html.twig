@@ -1,0 +1,15 @@
+{% extends ":catalogue:layout.html.twig" %}
+{% block title %} {{ parent() }} - lol!{% endblock %}
+{% block body_layout %}
+    {% for produit in produits %}
+        <div class="row">
+            <h1><a href="{{ path('detail_catalogue', {id:produit.id}) }}">{{ produit.titre }}</a></h1>
+            <span class="price"><b>{{ produit.prix }} €</b></<span>
+            <p>{{ produit.contenu | raw }}</p>
+            {% if produit.image %}
+                <img src="{{ produit.image.url }}" alt="{{ produit.image.alt }}">
+            {% endif %}
+            <hr>
+        </div>
+    {% endfor %}
+{% endblock %}

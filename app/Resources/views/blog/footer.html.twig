@@ -1,0 +1,9 @@
+Dernier articles
+<div class="jumbotron">
+    {% for article in articles %}
+        <h6>{{ article.titre }}</h6>
+        <em>le {{ article.date | date('d m Y') }}</em>
+        <p>{{ article.contenu | raw }}</p> 
+        <hr>
+    {% endfor %}
+</div>

@@ -1,0 +1,6 @@
+<div class="jumbotron">
+    {% for produit in produits %}
+        <h6><a href="{{ path('detail_catalogue', {id:produit.id}) }}">{{ produit.titre }}</a></h6>
+        <hr>
+    {% endfor %}
+</div>

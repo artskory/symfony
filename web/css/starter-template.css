@@ -1,0 +1,50 @@
+body {
+  padding-top: 50px;
+  font-family: 'Raleway', sans-serif;
+  
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: justify;
+}
+.jumbotron {
+   padding-top: 1px;
+   padding-bottom: 1px;
+}
+.jumbotron p{
+    font-size: 8px;
+}
+.jumbotron em{
+    font-size: 10px;
+}
+img.logo {
+    width: 32px;
+    float: left;
+    margin-right: 12px;
+    margin-top: -5px;
+}
+.mt15 {
+    margin-top: 15px;
+}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
+    color: #fff;
+    background-color: #337ab7 !important;
+}
+.price {
+    color: #222;
+    font-weight: bold;
+}
+.commentaire > p {
+    margin: 10px 0 0;
+}
+.loader{
+    display:none;
+    width: 50px;
+}
+.t-comment
+{
+    text-align: center;
+}
+.comment > li{
+    margin-bottom: 10px;
+}

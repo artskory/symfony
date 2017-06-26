@@ -1,0 +1,26 @@
+{% extends ":blog:layout.html.twig" %}
+{% block title %} {{ parent() }} - lol!{% endblock %}
+{% block body_layout %}
+{% for message in app.session.flashbag.get('succes')%}
+    <p class="alert alert-success">{{ message }}</p>
+{% endfor%}
+index : page n° {{ page }}
+        {% for article in articles %}
+            <div class="row">
+                <h1><a href="{{ path('detail_blog', {id:article.id}) }}">{{ article.titre }}</a></h1>
+                le <em>{{ article.date | date('d m Y') }}</em>
+                <p>{{ article.contenu | raw }}</p> {# raw permet de d'interpreter le #}
+                {% if article.image %}
+                    <img src="{{ article.image.url }}" alt="{{ article.image.alt }}">
+                {% endif %}
+                <div class="raw">
+                    {% for tag in article.tags %}
+                        <a href="{{ path('tag_blog', {id:tag.id}) }}"><p class="btn btn-primary">{{ tag.titre }}</p></a>
+                    {% else %}
+                        <p>Pas de tag</p>
+                    {% endfor %}
+                </div>
+                <hr>
+            </div>
+        {% endfor %}
+    {% endblock %}

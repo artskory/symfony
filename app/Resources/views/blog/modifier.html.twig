@@ -1,0 +1,19 @@
+{% extends "blog/layout.html.twig" %}
+{% block body_layout %}
+    <h2>Modifier</h2>
+    {% include 'blog/formulaire.html.twig'%}
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+{% endblock %}
+
+{% block javascripts %}
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( ".js-datepicker" ).datepicker({dateFormat:"yy-mm-dd"});
+  } );
+  </script>
+  <script src="//cdn.ckeditor.com/4.7.0/basic/ckeditor.js"></script>
+{% endblock %}

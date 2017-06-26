@@ -1,0 +1,95 @@
+{% extends ":blog:layout.html.twig" %}
+    {# <h1>{{ article['titre'] }}</h1>  #}
+    {# ou #}
+    {% block body_layout %}
+        <h1>{{ article.titre }}</h1>
+        le <em>{{ article.date | date('d m Y') }}</em>
+        <p>{{ article.contenu | raw }}</p>
+        {% if article.image %}
+            <img src="{{ article.image.url }}" alt="{{ article.image.alt }}">
+        {% endif %}
+    
+        <h3 class="t-comment">Commentaires</h3>
+        
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <img src="{{ asset('image/loader.gif')}}" class="loader" id="loading">
+        {{ form_end(form) }}
+        
+        {% for message in app.session.flashbag.get('succes')%}
+        <p class="alert alert-success">{{ message }}</p>
+        {% endfor%}
+        {% for message in app.session.flashbag.get('erreur') %}
+        <p class="allert allert-danger">{{ message }}</p>
+        {% endfor %}
+            
+        <ul class="list-unstyled comment">
+            {% for commentaire in article.commentaires %}
+                <li>
+                    <i>le {{ commentaire.date | date('d m Y') }}</i>
+                    <br>
+                    {{ commentaire.contenu }}
+                </li>
+            {% else %}
+                <p>Pas de commentaire</p>
+            {% endfor %}
+        </div>
+        
+        <div class="raw">
+            {% for tag in article.tags %}
+                <a href="{{ path('tag_blog', {id:tag.id}) }}"><p class="btn btn-primary">{{ tag.titre }}</p></a>
+            {% else %}
+                <p>Pas de tag</p>
+            {% endfor %}
+        </div>
+        <div class="mt15">
+            <ul class="list-unstyled">
+                <li><a href={{ path('modifier_blog', {id:article.id}) }}><span class="glyphicon glyphicon-edit"></span> Modifier</a></li>
+                <li><a href={{ path('supprimer_blog', {id:article.id}) }}><span class="glyphicon glyphicon-remove"></span> Supprimer</a></li>
+            </ul>
+        </div>
+    {% endblock%}
+    
+    {% block javascripts %}
+        <script>
+            $('form[name=appbundle_commentaire]') .submit(
+                function (e){
+                    e.preventDefault();
+                    $('#loading').show();
+                    $('form[name=appbundle_commentaire] button') 
+                            .addClass('disabled')
+                            .prop('disabled', true);
+                    $.ajax({
+                        url:'{{ path('ajax_commentaire_blog') }}', 
+                                method:'POST',
+                                dataType:'json',
+                                data:{
+                                    
+                                    id: {{ article.id }},
+                                    contenu: $('form[name=appbundle_commentaire] textarea').val()
+                            
+                                },
+                                error: function() {
+                                    
+                                    alert('erreur');
+                                    
+                                },
+                                success: function (data) {
+                                    
+                                    $('#loading').hide();
+                                    
+                                    if(data.success){
+                                        
+                                        $('ul.list-unstyled') .prepend(
+                                            '<li><i>' + data.commentaire.date + '</i><br>' + data.commentaire.contenu + '</li>');
+                                    
+                                    }else{
+                                        
+                                            $('form[name = appbundle_commentaire] button') .after('<p class="alert alert-danger">Pb :(</p>');
+                                            
+                                    }
+                                }  
+                            });
+                    });
+        </script>
+    {% endblock %}

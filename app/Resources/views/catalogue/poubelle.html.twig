@@ -1,0 +1,37 @@
+{% block javascripts %}
+    <script>
+        $('form[name=appbundle_rating]').submit(
+                function (e) {
+                    $('#ajax_error').remove();
+                    e.preventDefault();
+                    $('#loading').show();
+                    $('#appbundle_rating_Submit')
+                            .addClass("disabled")
+                            .prop('disabled', true);
+                    $.ajax({
+                        url: '{{ path('ajax_rating_blog') }}',
+                        method: 'POST',
+                        dataType: 'json',
+                        data: {
+                            id:{{ product.id }} ,
+                            rating: $('form[name=appbundle_rating] select').val()
+                        },
+                        error: function () {
+                            alert('ERRROOOOOORRRRRRR');
+                        },
+                        success: function (data) {
+                            $('#loading').hide();
+                            $('#appbundle_rating_Submit')
+                                    .removeClass("disabled")
+                                    .prop('disabled', false);
+                            if (data.success) {
+                                $('.footer-ratings:first-child').before('<mark>' + data.rating.rating + ' </mark>');
+                            } else {
+                                $('form[name=appbundle_comments] button').after('<div id="ajax_error" class="alert alert-danger" role="alert">Problem 😭</div>')
+                            }
+                        }
+                    });
+                }
+        );
+    </script>
+{% endblock %}

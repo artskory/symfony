@@ -1,0 +1,79 @@
+{% extends ":blog:layout.html.twig" %}
+{% block title %} {{ parent() }} - lol!{% endblock %}
+{% block body_layout %}
+    
+        <div class="row">
+            <h1>{{ produit.titre }}</h1>
+            <span class="price"><b>{{ produit.prix }} €</b></<span>
+            <p>{{ produit.contenu | raw }}</p>
+            {% if produit.image %}
+                <img src="{{ produit.image.url }}" alt="{{ produit.image.alt }}">
+            {% endif %}
+            
+            <hr>
+    
+            {% for message in app.session.flashbag.get('succes')%}
+            <p class="alert alert-success">{{ message }}</p>
+            {% endfor%}
+            {% for message in app.session.flashbag.get('erreur') %}
+            <p class="allert allert-danger">{{ message }}</p>
+            {% endfor %}
+    
+            <h5>Note</h5>
+            
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <img src="{{ asset('image/loader.gif')}}" class="loader" id="loading">
+            {{ form_end(form) }}
+            
+            <ul class="list-unstyled comment">
+            {% for note in produit.notes %}
+                <li>
+                    {{ note.value }}
+                </li>
+            {% else %}
+            <p>Pas de note</p>
+            {% endfor %}
+            </ul>
+            <hr>
+        </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        $('form[name=appbundle_note]') .submit(
+            function (e){
+                $('#ajax_error').remove();
+                e.preventDefault();
+                $('#loading').show();
+                $('#appbundle_note_Ajouter')
+                    .addClass('disabled')
+                    .prop('disabled', true);
+                $.ajax({
+                    url:'{{ path('ajax_note_produit') }}', 
+                        method:'POST',
+                        dataType:'json',
+                        data:{
+                            id: {{ produit.id }},
+                            value: $('form[name=appbundle_note] select').val()
+                        },
+                        error: function() {
+                            alert('erreur');
+                        },
+                        success: function (data) {
+                            $('#loading').hide();
+                            $('#appbundle_note_Ajouter') 
+                                .removeClass('disabled')
+                                .prop('disabled', false);
+                            if(data.success){
+                                $('ul.list-unstyled.comment') .prepend(
+                                    '<li>' + data.note.value + '</li>');
+                            }else{
+                                $('form[name = appbundle_note] button') .after('<p class="alert alert-danger">Pb :(</p>');
+                            }
+                        }  
+                });
+            }
+        );
+    </script>
+{% endblock %}

@@ -1,0 +1,11 @@
+<h4>Archive</h4>
+<ul class="list-unstyled">
+    
+{% for year in years %}
+    
+    <li><a href='{{ path('archives_blog', {year : year[1]}) }}'>{{ year[1] }}</a></li>
+    
+{% endfor %}
+
+
+</ul>

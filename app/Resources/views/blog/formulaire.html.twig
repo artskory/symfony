@@ -1,0 +1,19 @@
+{% form_theme form 'ckeditor.html.twig' %}
+
+{% for message in app.session.flashbag.get('erreur') %}
+    <p class="allert allert-danger">
+        {{ message }}
+    </p>
+{% endfor %}
+
+{{ form_start(form) }}
+{#{{ form_label(form.titre) }}#}
+{{ form_label(form.titre, 'Votre titre') }}
+    {{ form_errors(form.titre) }}
+    {{ form_widget(form.titre) }} 
+    
+{# {{ form_widget(form.date)}}  #}
+
+{{ form_row(form.date, {'attr':{'class':'js-datepicker'} }) }} {# date sera en premier #}
+
+{{ form_end(form) }}

@@ -1,0 +1,35 @@
+{% extends ":catalogue:layout.html.twig" %}
+{% block title %} {{ parent() }} - lol!{% endblock %}
+{% block body_layout %}
+    
+    
+    
+    {% for categorie in categories %}
+        <div class="row">
+            <h1><a href="{{ path('categorie_catalogue', {id:categorie.id}) }}">{{ categorie.titre }}</a></h1>   
+            <hr>
+        </div>
+            
+    {% endfor %}
+    
+        <div class="row">
+            <button id="last-produit" type="button" class="btn btn-lg btn-primary">Dernier Produits</button>
+        </div>
+        <div id="divvide"></div>
+        
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+    $('#last-produit').click( function(){
+        $.ajax({
+            url: '{{ path('ajax_new_prod')}}',
+            method:'GET',
+            dataType: 'html',
+            success: function (data) {
+                $('#divvide').html(data);
+    }
+        });
+    });
+    </script>
+{% endblock %}
