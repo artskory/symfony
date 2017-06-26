@@ -6,6 +6,7 @@ use AppBundle\Entity\Article;
 use AppBundle\Entity\Commentaire;
 use AppBundle\Form\ArticleType;
 use AppBundle\Form\CommentaireType;
+use AppBundle\Service\Extrait;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -25,7 +26,7 @@ class BlogController extends Controller
      * defaults={"p": 1}, 
      * requirements={"p": "\d+"})
      */
-    public function indexAction(Request $request, $p) {
+    public function indexAction(Request $request, $p, Extrait $extrait) {
         //var_dump($request);
         
         $em = $this->getDoctrine()->getManager();
@@ -33,6 +34,10 @@ class BlogController extends Controller
         $ar = $em->getRepository('AppBundle:Article');
         
         $articles = $ar->getArticlesWithLeftJoin();
+        
+        foreach ($articles as $article){
+            $article->setExtrait($extrait->get($article->getContenu()));
+        }
         
         return $this->render('blog/index.html.twig', ['page'=> $p, 'articles'=>$articles]);
     }

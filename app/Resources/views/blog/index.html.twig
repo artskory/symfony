@@ -9,7 +9,8 @@ index : page n° {{ page }}
             <div class="row">
                 <h1><a href="{{ path('detail_blog', {id:article.id}) }}">{{ article.titre }}</a></h1>
                 le <em>{{ article.date | date('d m Y') }}</em>
-                <p>{{ article.contenu | raw }}</p> {# raw permet de d'interpreter le #}
+                {#<p>{{ article.contenu | raw }}</p> {# raw permet de d'interpreter le #}
+                <p>{{ article.extrait | raw }}</p> {# raw permet de d'interpreter le #}
                 {% if article.image %}
                     <img src="{{ article.image.url }}" alt="{{ article.image.alt }}">
                 {% endif %}

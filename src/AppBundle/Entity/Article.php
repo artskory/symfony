@@ -95,8 +95,23 @@ class Article
     */
     private $commentaires;
     
+    /**
+     *
+     * @var string
+     */
+    private $extrait;
+
     //pour rendre la liaison obligatoire
     //@ORM\JoinColumn(nullable=false)
+    
+    function getExtrait() {
+        return $this->extrait;
+    }
+
+    function setExtrait($extrait) {
+        $this->extrait = $extrait;
+        return $this;
+    }
 
     /**
      * Get id
