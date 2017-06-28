@@ -4,13 +4,17 @@
 {% for message in app.session.flashbag.get('succes')%}
     <p class="alert alert-success">{{ message }}</p>
 {% endfor%}
-index : page n° {{ page }}
+{#index : page n° {{ page }}#}
         {% for article in articles %}
             <div class="row">
                 <h1><a href="{{ path('detail_blog', {id:article.id}) }}">{{ article.titre }}</a></h1>
                 le <em>{{ article.date | date('d m Y') }}</em>
                 {#<p>{{ article.contenu | raw }}</p> {# raw permet de d'interpreter le #}
-                <p>{{ article.extrait | raw }}</p> {# raw permet de d'interpreter le #}
+                <p>
+                    {#{{ article.extrait | raw }}#}
+                    {#{{ extrait(article.contenu) }}#}
+                    {{ article.contenu | extrait }}
+                </p>
                 {% if article.image %}
                     <img src="{{ article.image.url }}" alt="{{ article.image.alt }}">
                 {% endif %}
@@ -24,4 +28,13 @@ index : page n° {{ page }}
                 <hr>
             </div>
         {% endfor %}
+        <a href="{{path('blog',{p:p-1}) }}">◄</a>
+    {% for i in 1..nb_pages %}
+        {% if i == p %}
+            {{i}}
+        {% else %}
+            <a href="{{path('blog',{p:i} )}}">{{i}}</a>
+        {% endif %}
+    {% endfor %}
+    <a href="{{path('blog',{p:p+1}) }}">►</a>
     {% endblock %}

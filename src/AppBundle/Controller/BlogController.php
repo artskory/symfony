@@ -7,6 +7,7 @@ use AppBundle\Entity\Commentaire;
 use AppBundle\Form\ArticleType;
 use AppBundle\Form\CommentaireType;
 use AppBundle\Service\Extrait;
+use AppBundle\Service\ExtraitWithLink;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -26,20 +27,33 @@ class BlogController extends Controller
      * defaults={"p": 1}, 
      * requirements={"p": "\d+"})
      */
-    public function indexAction(Request $request, $p, Extrait $extrait) {
+    public function indexAction(Request $request, $p, Extrait $extrait, ExtraitWithLink $extraitWithLink) {
         //var_dump($request);
         
         $em = $this->getDoctrine()->getManager();
         
         $ar = $em->getRepository('AppBundle:Article');
         
-        $articles = $ar->getArticlesWithLeftJoin();
+        $limit = 10;
+        $offset = (int) $limit * ($p - 1);
         
-        foreach ($articles as $article){
-            $article->setExtrait($extrait->get($article->getContenu()));
-        }
+        $articles = $ar->getArticleWithLeftJoinWithPagination($offset, $limit);
         
-        return $this->render('blog/index.html.twig', ['page'=> $p, 'articles'=>$articles]);
+        $count = $articles->count($articles);
+        $nb_pages = ceil($count / $limit);
+        
+//        foreach ($articles as $article){
+//            
+//            $article->setExtrait($extrait->get($article->getContenu()));
+//            //$article->setExtrait($extraitWithLink->get($article));
+//           
+//        }
+        
+        return $this->render('blog/index.html.twig', [
+            'p'=> $p, 
+            'articles'=>$articles,
+            'offset'=> $offset,
+            'nb_pages'=>$nb_pages]);
     }
     
     public function footerAction(Request $request, $nb) {
@@ -239,16 +253,26 @@ class BlogController extends Controller
      * @Route("/tag/{id}", name="tag_blog",
      *  requirements={"id": "\d+"})
      */
-    public function tagAction($id) {
+    public function tagAction(Request $request, $id) {
         
         $em = $this->getDoctrine()->getManager()->getRepository('AppBundle:Article');
         
         $tag = $em->getArticlesByTagWithLeftJoin($id);
         
         $nbtag = $em->getCountArticlesByTagWithLeftJoin($id);
-        
+       
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $tag, /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            2/*limit per page*/
+        );
+    
         //var_dump($tag);
-        return $this->render('blog/tag.html.twig', ['tag'=> $tag, 'nbtag' => $nbtag]);
+        return $this->render('blog/tag.html.twig', [
+            'tag'=> $tag,
+            'nbtag' => $nbtag,
+            'pagination' => $pagination]);
     }
     
     /**

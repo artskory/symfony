@@ -2,6 +2,8 @@
 # https://symfony.com/doc/current/service_container.html
 parameters:
     suite: ' [...]'
+    max: 150
+    item_par_page: 5
 
 services:
     # default configuration for services in *this* file
@@ -32,5 +34,21 @@ services:
     # add more services, or override services that need manual wiring
     AppBundle\Service\Extrait:
         arguments:
-            $max: 15
+            $max: '%max%'
             $suite: '%suite%'
+            
+    AppBundle\Service\ExtraitWithLink:
+        arguments:
+            $max: '%max%'
+            
+    AppBundle\Twig\ExtraitTwig:
+        arguments:
+            $max: '%max%'
+            $suite: '///////===---IL Y A UNE SUITE A CE TEXTE---===\\\\\\\'
+            
+    app.maintenance:
+        class: AppBundle\Listener\MaintenanceListener
+        arguments:
+            $actif: false
+        tags:
+            - { name: kernel.event_listener, event: kernel.request }

@@ -88,3 +88,7 @@ img.logo {
 .material-switch > input[type="checkbox"]:checked + label::before {
     background: inherit;
 }
+
+.maintenance{
+    width: 250px;
+}

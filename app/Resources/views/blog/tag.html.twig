@@ -2,7 +2,7 @@
 {% block title %} {{ parent() }} - lol!{% endblock %}
 {% block body_layout %}
 
-    {% for article in tag %}
+    {% for article in pagination %}
         <div class="row">
             <h1><a href="{{ path('detail_blog', {id:article.id}) }}">{{ article.titre }}</a></h1>
             le <em>{{ article.date | date('d m Y') }}</em>
@@ -10,6 +10,8 @@
             {% if article.image %}
                 <img src="{{ article.image.url }}" alt="{{ article.image.alt }}">
             {% endif %}
+            <hr>
+        </div>
             <div class="raw">
                 {% for tag in article.tags %}
                     <a href="{{ path('tag_blog', {id:tag.id}) }}"><p class="btn btn-primary">{{ tag.titre }} <span class="badge">{{ nbtag }}</span></p></a>
@@ -17,7 +19,8 @@
                     <p>Pas de tag</p>
                 {% endfor %}
             </div>
-            <hr>
-        </div>
     {% endfor %}
+            <div class="navigation">
+    {{ knp_pagination_render(pagination) }}
+</div>
 {% endblock %}

@@ -37,12 +37,9 @@ class Extrait {
             $texte = substr($texte, 0, strrpos($texte, " ")) . $this->suite;
         }
         
-        $this->session->getFlashBag()->add('succes', 'Extrait Ok');
+        //$this->session->getFlashBag()->add('succes', 'Extrait Ok');
         
         return $texte;
     }
     
-    public function getLireLaSuite() {
-        
-    }
 }

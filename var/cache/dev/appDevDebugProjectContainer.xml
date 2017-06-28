@@ -17,6 +17,8 @@
       <parameter key="DoctrineBundle">Doctrine\Bundle\DoctrineBundle\DoctrineBundle</parameter>
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
       <parameter key="AppBundle">AppBundle\AppBundle</parameter>
+      <parameter key="KnpPaginatorBundle">Knp\Bundle\PaginatorBundle\KnpPaginatorBundle</parameter>
+      <parameter key="OCPlatformBundle">OC\PlatformBundle\OCPlatformBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -64,6 +66,16 @@
         <parameter key="path">C:\xampp\htdocs\symfony\src\AppBundle</parameter>
         <parameter key="namespace">AppBundle</parameter>
       </parameter>
+      <parameter key="KnpPaginatorBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">C:\xampp\htdocs\symfony\vendor\knplabs\knp-paginator-bundle</parameter>
+        <parameter key="namespace">Knp\Bundle\PaginatorBundle</parameter>
+      </parameter>
+      <parameter key="OCPlatformBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">C:\xampp\htdocs\symfony\src\OC\PlatformBundle</parameter>
+        <parameter key="namespace">OC\PlatformBundle</parameter>
+      </parameter>
       <parameter key="DebugBundle" type="collection">
         <parameter key="parent">null</parameter>
         <parameter key="path">C:\xampp\htdocs\symfony\vendor\symfony\symfony\src\Symfony\Bundle\DebugBundle</parameter>
@@ -103,6 +115,8 @@
     <parameter key="mailer_password">null</parameter>
     <parameter key="secret">ThisTokenIsNotSoSecretChangeIt</parameter>
     <parameter key="suite"> [...]</parameter>
+    <parameter key="max">150</parameter>
+    <parameter key="item_par_page">5</parameter>
     <parameter key="locale">fr</parameter>
     <parameter key="fragment.renderer.hinclude.global_template">null</parameter>
     <parameter key="fragment.path">/_fragment</parameter>
@@ -335,6 +349,12 @@
     <parameter key="sensio_framework_extra.converter.doctrine.class">Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\DoctrineParamConverter</parameter>
     <parameter key="sensio_framework_extra.converter.datetime.class">Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\DateTimeParamConverter</parameter>
     <parameter key="sensio_framework_extra.view.listener.class">Sensio\Bundle\FrameworkExtraBundle\EventListener\TemplateListener</parameter>
+    <parameter key="knp_paginator.class">Knp\Component\Pager\Paginator</parameter>
+    <parameter key="knp_paginator.helper.processor.class">Knp\Bundle\PaginatorBundle\Helper\Processor</parameter>
+    <parameter key="knp_paginator.template.pagination">KnpPaginatorBundle:Pagination:sliding.html.twig</parameter>
+    <parameter key="knp_paginator.template.filtration">KnpPaginatorBundle:Pagination:filtration.html.twig</parameter>
+    <parameter key="knp_paginator.template.sortable">KnpPaginatorBundle:Pagination:sortable_link.html.twig</parameter>
+    <parameter key="knp_paginator.page_range">5</parameter>
     <parameter key="web_profiler.debug_toolbar.position">bottom</parameter>
     <parameter key="web_profiler.debug_toolbar.intercept_redirects">false</parameter>
     <parameter key="web_profiler.debug_toolbar.mode">2</parameter>
@@ -440,10 +460,26 @@
     <service id="AppBundle\Form\NoteType" class="AppBundle\Form\NoteType" public="false" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="AppBundle\Listener\MaintenanceListener" class="AppBundle\Listener\MaintenanceListener" public="false" autowire="true" autoconfigure="true"/>
     <service id="AppBundle\Service\Extrait" class="AppBundle\Service\Extrait" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="session"/>
-      <argument>15</argument>
+      <argument>150</argument>
       <argument> [...]</argument>
+    </service>
+    <service id="AppBundle\Service\ExtraitWithLink" class="AppBundle\Service\ExtraitWithLink" public="false" autowire="true" autoconfigure="true">
+      <argument type="service" id="router.default"/>
+      <argument>150</argument>
+    </service>
+    <service id="AppBundle\Twig\ExtraitTwig" class="AppBundle\Twig\ExtraitTwig" public="false" autowire="true" autoconfigure="true">
+      <tag name="twig.extension"/>
+      <tag name="twig.extension"/>
+      <argument>150</argument>
+      <argument>///////===---IL Y A UNE SUITE A CE TEXTE---===\\\\\\\</argument>
+    </service>
+    <service id="app.maintenance" class="AppBundle\Listener\MaintenanceListener" public="false" autowire="true" autoconfigure="true">
+      <tag name="kernel.event_listener" event="kernel.request"/>
+      <argument type="service" id="templating.engine.twig"/>
+      <argument>false</argument>
     </service>
     <service id="controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
       <tag name="monolog.logger" channel="request"/>
@@ -461,7 +497,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
       <tag name="controller.argument_value_resolver" priority="-50"/>
-      <argument type="service" id="service_locator.8a5afd4a863b70b1b9554922a6163a4c"/>
+      <argument type="service" id="service_locator.15b93cb659322e86ed737e71b55fa018"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false">
       <tag name="controller.argument_value_resolver" priority="-100"/>
@@ -629,7 +665,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>7-wunLWLZylCVTErCG5L-G</argument>
+      <argument>RMjCzbzamtVtTaJIIxMI08</argument>
       <argument>C:\xampp\htdocs\symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -639,7 +675,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>7-wunLWLZylCVTErCG5L-G</argument>
+      <argument>RMjCzbzamtVtTaJIIxMI08</argument>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
@@ -1259,10 +1295,26 @@
       <argument type="service" id="debug.stopwatch"/>
       <argument type="service" id="monolog.logger.event" on-invalid="null"/>
       <call method="addListener">
+        <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument type="service" id="app.maintenance"/>
+          <argument>onKernelRequest</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
         <argument>kernel.controller</argument>
         <argument type="collection">
           <argument type="service" id="data_collector.router"/>
           <argument>onKernelController</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.sliding_pagination"/>
+          <argument>onKernelRequest</argument>
         </argument>
         <argument>0</argument>
       </call>
@@ -1569,6 +1621,46 @@
           <argument>onKernelResponse</argument>
         </argument>
         <argument>-128</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.paginate"/>
+          <argument>before</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.pagination</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.paginate"/>
+          <argument>pagination</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.sortable"/>
+          <argument>before</argument>
+        </argument>
+        <argument>1</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.filtration"/>
+          <argument>before</argument>
+        </argument>
+        <argument>1</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.pagination</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.sliding_pagination"/>
+          <argument>pagination</argument>
+        </argument>
+        <argument>1</argument>
       </call>
     </service>
     <service id="debug.controller_resolver" class="Symfony\Component\HttpKernel\Controller\TraceableControllerResolver">
@@ -2181,12 +2273,12 @@
     </service>
     <service id="security.authentication.listener.anonymous.main" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
       <argument type="service" id="security.token_storage"/>
-      <argument>595104123f8860.18075530</argument>
+      <argument>59535d044e0110.48781843</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument type="service" id="security.authentication.manager"/>
     </service>
     <service id="security.authentication.provider.anonymous.main" class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-      <argument>595104123f8860.18075530</argument>
+      <argument>59535d044e0110.48781843</argument>
     </service>
     <service id="security.exception_listener.main" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
       <argument type="service" id="security.token_storage"/>
@@ -2247,6 +2339,9 @@
         </argument>
       </argument>
       <call method="addExtension">
+        <argument type="service" id="AppBundle\Twig\ExtraitTwig"/>
+      </call>
+      <call method="addExtension">
         <argument type="service" id="twig.extension.logout_url"/>
       </call>
       <call method="addExtension">
@@ -2293,6 +2388,9 @@
       </call>
       <call method="addExtension">
         <argument type="service" id="doctrine.twig.doctrine_extension"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="knp_paginator.twig.extension.pagination"/>
       </call>
       <call method="addExtension">
         <argument type="service" id="twig.extension.dump"/>
@@ -2363,6 +2461,14 @@
       <call method="addPath">
         <argument>C:\xampp\htdocs\symfony\vendor\doctrine\doctrine-bundle/Resources/views</argument>
         <argument>Doctrine</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\xampp\htdocs\symfony\vendor\knplabs\knp-paginator-bundle/Resources/views</argument>
+        <argument>KnpPaginator</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\xampp\htdocs\symfony\src\OC\PlatformBundle/Resources/views</argument>
+        <argument>OCPlatform</argument>
       </call>
       <call method="addPath">
         <argument>C:\xampp\htdocs\symfony\vendor\symfony\symfony\src\Symfony\Bundle\DebugBundle/Resources/views</argument>
@@ -2506,6 +2612,14 @@
       <call method="addPath">
         <argument>C:\xampp\htdocs\symfony\vendor\doctrine\doctrine-bundle/Resources/views</argument>
         <argument>Doctrine</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\xampp\htdocs\symfony\vendor\knplabs\knp-paginator-bundle/Resources/views</argument>
+        <argument>KnpPaginator</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\xampp\htdocs\symfony\src\OC\PlatformBundle/Resources/views</argument>
+        <argument>OCPlatform</argument>
       </call>
       <call method="addPath">
         <argument>C:\xampp\htdocs\symfony\vendor\symfony\symfony\src\Symfony\Bundle\DebugBundle/Resources/views</argument>
@@ -2989,6 +3103,46 @@
       <argument type="service" id="security.authorization_checker" on-invalid="null"/>
     </service>
     <service id="sensio_framework_extra.security.expression_language.default" class="Sensio\Bundle\FrameworkExtraBundle\Security\ExpressionLanguage" public="false"/>
+    <service id="knp_paginator" class="Knp\Component\Pager\Paginator">
+      <argument type="service" id="debug.event_dispatcher"/>
+      <call method="setDefaultPaginatorOptions">
+        <argument type="collection">
+          <argument key="pageParameterName">page</argument>
+          <argument key="sortFieldParameterName">sort</argument>
+          <argument key="sortDirectionParameterName">direction</argument>
+          <argument key="filterFieldParameterName">filterField</argument>
+          <argument key="filterValueParameterName">filterValue</argument>
+          <argument key="distinct">true</argument>
+        </argument>
+      </call>
+    </service>
+    <service id="knp_paginator.subscriber.paginate" class="Knp\Component\Pager\Event\Subscriber\Paginate\PaginationSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.sortable" class="Knp\Component\Pager\Event\Subscriber\Sortable\SortableSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.filtration" class="Knp\Component\Pager\Event\Subscriber\Filtration\FiltrationSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.sliding_pagination" class="Knp\Bundle\PaginatorBundle\Subscriber\SlidingPaginationSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+      <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest"/>
+      <argument type="collection">
+        <argument key="defaultPaginationTemplate">KnpPaginatorBundle:Pagination:sliding.html.twig</argument>
+        <argument key="defaultSortableTemplate">KnpPaginatorBundle:Pagination:sortable_link.html.twig</argument>
+        <argument key="defaultFiltrationTemplate">KnpPaginatorBundle:Pagination:filtration.html.twig</argument>
+        <argument key="defaultPageRange">5</argument>
+      </argument>
+    </service>
+    <service id="knp_paginator.helper.processor" class="Knp\Bundle\PaginatorBundle\Helper\Processor">
+      <argument type="service" id="router.default"/>
+      <argument type="service" id="translator"/>
+    </service>
+    <service id="knp_paginator.twig.extension.pagination" class="Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension">
+      <tag name="twig.extension"/>
+      <argument type="service" id="knp_paginator.helper.processor"/>
+    </service>
     <service id="twig.extension.dump" class="Symfony\Bridge\Twig\Extension\DumpExtension" public="false">
       <tag name="twig.extension"/>
       <argument type="service" id="var_dumper.cloner"/>
@@ -3178,10 +3332,14 @@
     <service id="abstract.instanceof.AppBundle\Form\ImageType" class="AppBundle\Form\ImageType" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Symfony\Component\Form\FormTypeInterface.0.AppBundle\Form\NoteType" class="AppBundle\Form\NoteType" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.AppBundle\Form\NoteType" class="AppBundle\Form\NoteType" public="false" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id="service_locator.24ded8be08bf306d37f29699a7de7abb" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="instanceof.Twig_ExtensionInterface.0.AppBundle\Twig\ExtraitTwig" class="AppBundle\Twig\ExtraitTwig" public="false" autowire="true" abstract="true"/>
+    <service id="instanceof.Twig\Extension\ExtensionInterface.0.AppBundle\Twig\ExtraitTwig" class="AppBundle\Twig\ExtraitTwig" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.AppBundle\Twig\ExtraitTwig" class="AppBundle\Twig\ExtraitTwig" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id="service_locator.fdd25f24ffd8af6fd192dbc3cbd26d95" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="extrait" type="service" id="AppBundle\Service\Extrait" on-invalid="ignore"/>
+        <argument key="extraitWithLink" type="service" id="AppBundle\Service\ExtraitWithLink" on-invalid="ignore"/>
       </argument>
     </service>
     <service id="service_locator.1f550d0fcae77f821854b1295eaa5e70" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -3208,14 +3366,14 @@
       <tag name="container.service_locator"/>
       <argument type="collection"/>
     </service>
-    <service id="service_locator.8a5afd4a863b70b1b9554922a6163a4c" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="service_locator.15b93cb659322e86ed737e71b55fa018" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="AppBundle\Controller\BlogController:ajouterCommentaireAction" type="service" id="service_locator.9fb7462af4a7bafbfe31c7964a4d57f7"/>
-        <argument key="AppBundle\Controller\BlogController:indexAction" type="service" id="service_locator.24ded8be08bf306d37f29699a7de7abb"/>
+        <argument key="AppBundle\Controller\BlogController:indexAction" type="service" id="service_locator.fdd25f24ffd8af6fd192dbc3cbd26d95"/>
         <argument key="AppBundle\Controller\CatalogueController:categorieAction" type="service" id="service_locator.75200083c70a6a766bd76c10ab100e7d"/>
         <argument key="AppBundle\Controller\BlogController::ajouterCommentaireAction" type="service" id="service_locator.9fb7462af4a7bafbfe31c7964a4d57f7"/>
-        <argument key="AppBundle\Controller\BlogController::indexAction" type="service" id="service_locator.24ded8be08bf306d37f29699a7de7abb"/>
+        <argument key="AppBundle\Controller\BlogController::indexAction" type="service" id="service_locator.fdd25f24ffd8af6fd192dbc3cbd26d95"/>
         <argument key="AppBundle\Controller\CatalogueController::categorieAction" type="service" id="service_locator.75200083c70a6a766bd76c10ab100e7d"/>
       </argument>
     </service>
@@ -3437,7 +3595,7 @@
     <service id="cache.system.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>3lozzWEQj2</argument>
       <argument>0</argument>
-      <argument>7-wunLWLZylCVTErCG5L-G</argument>
+      <argument>RMjCzbzamtVtTaJIIxMI08</argument>
       <argument>C:\xampp\htdocs\symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3445,7 +3603,7 @@
     <service id="cache.validator.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>huuUBD+ixv</argument>
       <argument>0</argument>
-      <argument>7-wunLWLZylCVTErCG5L-G</argument>
+      <argument>RMjCzbzamtVtTaJIIxMI08</argument>
       <argument>C:\xampp\htdocs\symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3453,7 +3611,7 @@
     <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>CwPLSWaNrQ</argument>
       <argument>0</argument>
-      <argument>7-wunLWLZylCVTErCG5L-G</argument>
+      <argument>RMjCzbzamtVtTaJIIxMI08</argument>
       <argument>C:\xampp\htdocs\symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3461,7 +3619,7 @@
     <service id="cache.annotations.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>H0eCdKkYQ7</argument>
       <argument>0</argument>
-      <argument>7-wunLWLZylCVTErCG5L-G</argument>
+      <argument>RMjCzbzamtVtTaJIIxMI08</argument>
       <argument>C:\xampp\htdocs\symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
