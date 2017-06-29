@@ -113,13 +113,9 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        // oc_platform_homepage
-        if ('' === $trimmedPathinfo) {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'oc_platform_homepage');
-            }
-
-            return array (  '_controller' => 'OC\\PlatformBundle\\Controller\\DefaultController::indexAction',  '_route' => 'oc_platform_homepage',);
+        // oc_platform
+        if ('/annonce' === $pathinfo) {
+            return array (  '_controller' => 'OC\\PlatformBundle\\Controller\\AnnonceController::indexAction',  '_route' => 'oc_platform',);
         }
 
         if (0 === strpos($pathinfo, '/blog')) {
