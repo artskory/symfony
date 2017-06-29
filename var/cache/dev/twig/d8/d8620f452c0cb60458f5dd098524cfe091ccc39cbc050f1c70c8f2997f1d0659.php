@@ -15,11 +15,11 @@ class __TwigTemplate_a63fbf3ad6cc8d72864a6bc6ee3c5da6f146083960d55c9c2431ba253d7
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_261be5a480bf5768ced25fd4dc77011bdb6dcd00afc6bc8f2dcb0e3c6808ea0b = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_261be5a480bf5768ced25fd4dc77011bdb6dcd00afc6bc8f2dcb0e3c6808ea0b->enter($__internal_261be5a480bf5768ced25fd4dc77011bdb6dcd00afc6bc8f2dcb0e3c6808ea0b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "catalogue/new.html.twig"));
+        $__internal_dc1a715cab6f2de0d1551aeffc42526e0381f49ab1d05a36448afa80d59d4de6 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_dc1a715cab6f2de0d1551aeffc42526e0381f49ab1d05a36448afa80d59d4de6->enter($__internal_dc1a715cab6f2de0d1551aeffc42526e0381f49ab1d05a36448afa80d59d4de6_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "catalogue/new.html.twig"));
 
-        $__internal_096f6649db25dd542b2d9322c392458cdb156f5c8ed9bc708a63d96f38e0ae9d = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_096f6649db25dd542b2d9322c392458cdb156f5c8ed9bc708a63d96f38e0ae9d->enter($__internal_096f6649db25dd542b2d9322c392458cdb156f5c8ed9bc708a63d96f38e0ae9d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "catalogue/new.html.twig"));
+        $__internal_e35cf3b47e48ee2672209565305f6fff1c1969ddae93e1a20388debec83c24fc = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_e35cf3b47e48ee2672209565305f6fff1c1969ddae93e1a20388debec83c24fc->enter($__internal_e35cf3b47e48ee2672209565305f6fff1c1969ddae93e1a20388debec83c24fc_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "catalogue/new.html.twig"));
 
         // line 1
         echo "<div class=\"jumbotron\">
@@ -44,10 +44,10 @@ class __TwigTemplate_a63fbf3ad6cc8d72864a6bc6ee3c5da6f146083960d55c9c2431ba253d7
         echo "</div>
 ";
         
-        $__internal_261be5a480bf5768ced25fd4dc77011bdb6dcd00afc6bc8f2dcb0e3c6808ea0b->leave($__internal_261be5a480bf5768ced25fd4dc77011bdb6dcd00afc6bc8f2dcb0e3c6808ea0b_prof);
+        $__internal_dc1a715cab6f2de0d1551aeffc42526e0381f49ab1d05a36448afa80d59d4de6->leave($__internal_dc1a715cab6f2de0d1551aeffc42526e0381f49ab1d05a36448afa80d59d4de6_prof);
 
         
-        $__internal_096f6649db25dd542b2d9322c392458cdb156f5c8ed9bc708a63d96f38e0ae9d->leave($__internal_096f6649db25dd542b2d9322c392458cdb156f5c8ed9bc708a63d96f38e0ae9d_prof);
+        $__internal_e35cf3b47e48ee2672209565305f6fff1c1969ddae93e1a20388debec83c24fc->leave($__internal_e35cf3b47e48ee2672209565305f6fff1c1969ddae93e1a20388debec83c24fc_prof);
 
     }
 

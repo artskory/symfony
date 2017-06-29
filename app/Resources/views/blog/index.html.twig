@@ -28,13 +28,14 @@
                 <hr>
             </div>
         {% endfor %}
-        <a href="{{path('blog',{p:p-1}) }}">◄</a>
-    {% for i in 1..nb_pages %}
-        {% if i == p %}
-            {{i}}
-        {% else %}
-            <a href="{{path('blog',{p:i} )}}">{{i}}</a>
-        {% endif %}
-    {% endfor %}
-    <a href="{{path('blog',{p:p+1}) }}">►</a>
+            <a href="{{path('blog',{p:p-1}) }}">◄</a>
+        {% for i in 1..nb_pages %}
+            {% if i == p %}
+                {{i}}
+            {% else %}
+                    <a href="{{path('blog',{p:i} )}}">{{i}}</a>
+            {% endif %}
+        {% endfor %}
+        <a href="{{path('blog',{p:p+1}) }}">►</a>
+        
     {% endblock %}

@@ -1,4 +1,5 @@
-{% form_theme form 'ckeditor.html.twig' %}
+{% form_theme form 'ckeditor.html.twig' form_edit 'bootstrap_3_layout.html.twig' %}
+
 
 {% for message in app.session.flashbag.get('erreur') %}
     <p class="allert allert-danger">

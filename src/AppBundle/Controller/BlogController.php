@@ -257,21 +257,21 @@ class BlogController extends Controller
         
         $em = $this->getDoctrine()->getManager()->getRepository('AppBundle:Article');
         
-        $tag = $em->getArticlesByTagWithLeftJoin($id);
+        $query = $em->getArticlesByTagWithLeftJoin($id);
         
         $nbtag = $em->getCountArticlesByTagWithLeftJoin($id);
        
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
-            $tag, /* query NOT result */
+            $query, /* query NOT result */
             $request->query->getInt('page', 1)/*page number*/,
             2/*limit per page*/
         );
     
         //var_dump($tag);
         return $this->render('blog/tag.html.twig', [
-            'tag'=> $tag,
-            'nbtag' => $nbtag,
+        //    'tag'=> $tag,
+           //'nbtag' => $nbtag,
             'pagination' => $pagination]);
     }
     

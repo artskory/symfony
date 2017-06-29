@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tags list</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th class="th-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tag in tags %}
+            <tr>
+                <td><a href="{{ path('admin_tag_show', { 'id': tag.id }) }}">{{ tag.id }}</a></td>
+                <td>{{ tag.titre }}</td>
+                <td><a class="btn btn-primary" href="{{ path('admin_tag_show', { 'id': tag.id }) }}">show</a></td>
+                <td><a class="btn btn-warning" href="{{ path('admin_tag_edit', { 'id': tag.id }) }}">edit</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a class="btn btn-info" href="{{ path('admin_tag_new') }}">Create a new tag</a>
+        </li>
+    </ul>
+{% endblock %}

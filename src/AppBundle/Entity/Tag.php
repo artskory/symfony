@@ -106,7 +106,6 @@ class Tag
      *
      * @return \Doctrine\Common\Collections\Collection
      * 
-     * @ORM\OrderBy({"titre"="ASC"})
      */
     public function getArticles()
     {

@@ -84,11 +84,11 @@ class ArticleRepository extends EntityRepository
                 ->andwhere('a.publication = 1')
                 ->orderBy('a.date', 'DESC');
         
-        $query = $qb->getQuery();
+    return    $query = $qb->getQuery();
         
-        $article = $query->getResult();
+      //  $article = $query->getResult();
         
-        return $article;
+     //   return $article;
     }
     
     public function getCountArticlesByTagWithLeftJoin($id) {

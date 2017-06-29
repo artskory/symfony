@@ -22,77 +22,93 @@ class __TwigTemplate_2ec0cd6c8012da68b68c55fd55a2d8c9b06dcfdb3f0ff473306f70b9729
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_2515f94979bc02b724dbedc3b3a51faf60587a077cff818d8e9f7e1182e07f01 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_2515f94979bc02b724dbedc3b3a51faf60587a077cff818d8e9f7e1182e07f01->enter($__internal_2515f94979bc02b724dbedc3b3a51faf60587a077cff818d8e9f7e1182e07f01_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", ":blog:tag.html.twig"));
+        $__internal_5b533acfebca8a879bba3861c618105116dccfff0382b0ca5c19ada09c021a3b = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_5b533acfebca8a879bba3861c618105116dccfff0382b0ca5c19ada09c021a3b->enter($__internal_5b533acfebca8a879bba3861c618105116dccfff0382b0ca5c19ada09c021a3b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", ":blog:tag.html.twig"));
 
-        $__internal_4343321b42827a08a02dfce175da6953f28a890c0775de60a7d13b3316e2f3bb = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_4343321b42827a08a02dfce175da6953f28a890c0775de60a7d13b3316e2f3bb->enter($__internal_4343321b42827a08a02dfce175da6953f28a890c0775de60a7d13b3316e2f3bb_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", ":blog:tag.html.twig"));
+        $__internal_7e47e30c83f5eec1d07a1d3524e90536b311ac462fb1e741c4ffa9a356f21a87 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_7e47e30c83f5eec1d07a1d3524e90536b311ac462fb1e741c4ffa9a356f21a87->enter($__internal_7e47e30c83f5eec1d07a1d3524e90536b311ac462fb1e741c4ffa9a356f21a87_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", ":blog:tag.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_2515f94979bc02b724dbedc3b3a51faf60587a077cff818d8e9f7e1182e07f01->leave($__internal_2515f94979bc02b724dbedc3b3a51faf60587a077cff818d8e9f7e1182e07f01_prof);
+        $__internal_5b533acfebca8a879bba3861c618105116dccfff0382b0ca5c19ada09c021a3b->leave($__internal_5b533acfebca8a879bba3861c618105116dccfff0382b0ca5c19ada09c021a3b_prof);
 
         
-        $__internal_4343321b42827a08a02dfce175da6953f28a890c0775de60a7d13b3316e2f3bb->leave($__internal_4343321b42827a08a02dfce175da6953f28a890c0775de60a7d13b3316e2f3bb_prof);
+        $__internal_7e47e30c83f5eec1d07a1d3524e90536b311ac462fb1e741c4ffa9a356f21a87->leave($__internal_7e47e30c83f5eec1d07a1d3524e90536b311ac462fb1e741c4ffa9a356f21a87_prof);
 
     }
 
-    // line 2
+    // line 3
     public function block_title($context, array $blocks = array())
     {
-        $__internal_bb7b9fe77059fdb57bedeefeee798caf685e85a54cc7910fbc78d733bbd36819 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_bb7b9fe77059fdb57bedeefeee798caf685e85a54cc7910fbc78d733bbd36819->enter($__internal_bb7b9fe77059fdb57bedeefeee798caf685e85a54cc7910fbc78d733bbd36819_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_8d8ab03eeec4ce4f5d1658802f2907f94ea36b73c402681193b59945e2f1b4ec = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_8d8ab03eeec4ce4f5d1658802f2907f94ea36b73c402681193b59945e2f1b4ec->enter($__internal_8d8ab03eeec4ce4f5d1658802f2907f94ea36b73c402681193b59945e2f1b4ec_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
-        $__internal_d4225f3c9ef532aea0bbe32d23e1380a5f9e62fe82de4aa79b129615de927a05 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_d4225f3c9ef532aea0bbe32d23e1380a5f9e62fe82de4aa79b129615de927a05->enter($__internal_d4225f3c9ef532aea0bbe32d23e1380a5f9e62fe82de4aa79b129615de927a05_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_c83858d1e4660b5db56fd39d86ab9381d255541bcdfedab5e4cb320fd90859be = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_c83858d1e4660b5db56fd39d86ab9381d255541bcdfedab5e4cb320fd90859be->enter($__internal_c83858d1e4660b5db56fd39d86ab9381d255541bcdfedab5e4cb320fd90859be_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         echo " ";
         $this->displayParentBlock("title", $context, $blocks);
         echo " - lol!";
         
-        $__internal_d4225f3c9ef532aea0bbe32d23e1380a5f9e62fe82de4aa79b129615de927a05->leave($__internal_d4225f3c9ef532aea0bbe32d23e1380a5f9e62fe82de4aa79b129615de927a05_prof);
+        $__internal_c83858d1e4660b5db56fd39d86ab9381d255541bcdfedab5e4cb320fd90859be->leave($__internal_c83858d1e4660b5db56fd39d86ab9381d255541bcdfedab5e4cb320fd90859be_prof);
 
         
-        $__internal_bb7b9fe77059fdb57bedeefeee798caf685e85a54cc7910fbc78d733bbd36819->leave($__internal_bb7b9fe77059fdb57bedeefeee798caf685e85a54cc7910fbc78d733bbd36819_prof);
+        $__internal_8d8ab03eeec4ce4f5d1658802f2907f94ea36b73c402681193b59945e2f1b4ec->leave($__internal_8d8ab03eeec4ce4f5d1658802f2907f94ea36b73c402681193b59945e2f1b4ec_prof);
 
     }
 
-    // line 3
+    // line 5
     public function block_body_layout($context, array $blocks = array())
     {
-        $__internal_6915d164909db38ab9aebb0b79f7e6fa1f998cfc87e5f81769ddb09f7464c12d = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_6915d164909db38ab9aebb0b79f7e6fa1f998cfc87e5f81769ddb09f7464c12d->enter($__internal_6915d164909db38ab9aebb0b79f7e6fa1f998cfc87e5f81769ddb09f7464c12d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body_layout"));
+        $__internal_cbad85b613d54c22a794be1d376fb090f4b59ab0f7add775a20ba08aff0993e1 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_cbad85b613d54c22a794be1d376fb090f4b59ab0f7add775a20ba08aff0993e1->enter($__internal_cbad85b613d54c22a794be1d376fb090f4b59ab0f7add775a20ba08aff0993e1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body_layout"));
 
-        $__internal_22e5f04da7957e7a505054bb6ca2ed98134f1f8a7d5b8da4d7a42faaceb37870 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_22e5f04da7957e7a505054bb6ca2ed98134f1f8a7d5b8da4d7a42faaceb37870->enter($__internal_22e5f04da7957e7a505054bb6ca2ed98134f1f8a7d5b8da4d7a42faaceb37870_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body_layout"));
+        $__internal_288c751f468c69d7fc6aa0661dfb29cd01b49727f1306534c743f45bd81d9a75 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_288c751f468c69d7fc6aa0661dfb29cd01b49727f1306534c743f45bd81d9a75->enter($__internal_288c751f468c69d7fc6aa0661dfb29cd01b49727f1306534c743f45bd81d9a75_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body_layout"));
 
-        // line 4
+        // line 6
         echo "
+    <ul class=\"list-unstyled\">
+        <li ";
+        // line 8
+        if ($this->getAttribute(($context["pagination"] ?? $this->getContext($context, "pagination")), "isSorted", array(0 => "a.titre"), "method")) {
+            echo " class=\"sorted\"";
+        }
+        echo "><span class=\"glyphicon glyphicon-sort-by-alphabet\"></span>";
+        echo $this->env->getExtension('Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension')->sortable($this->env, ($context["pagination"] ?? $this->getContext($context, "pagination")), "Titre", "a.titre");
+        echo "</li>|
+        <li><span class=\"glyphicon glyphicon-sort-by-order\"></span>";
+        // line 9
+        echo $this->env->getExtension('Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension')->sortable($this->env, ($context["pagination"] ?? $this->getContext($context, "pagination")), "Date", array(0 => "a.date"));
+        echo "
+        </li>
+    </ul>
+
     ";
-        // line 5
+        // line 13
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["pagination"] ?? $this->getContext($context, "pagination")));
         foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
-            // line 6
+            // line 14
             echo "        <div class=\"row\">
             <h1><a href=\"";
-            // line 7
+            // line 15
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("detail_blog", array("id" => $this->getAttribute($context["article"], "id", array()))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($context["article"], "titre", array()), "html", null, true);
             echo "</a></h1>
             le <em>";
-            // line 8
+            // line 16
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($context["article"], "date", array()), "d m Y"), "html", null, true);
             echo "</em>
             <p>";
-            // line 9
+            // line 17
             echo $this->getAttribute($context["article"], "contenu", array());
             echo "</p> ";
-            // line 10
+            // line 18
             echo "            ";
             if ($this->getAttribute($context["article"], "image", array())) {
-                // line 11
+                // line 19
                 echo "                <img src=\"";
                 echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["article"], "image", array()), "url", array()), "html", null, true);
                 echo "\" alt=\"";
@@ -100,55 +116,56 @@ class __TwigTemplate_2ec0cd6c8012da68b68c55fd55a2d8c9b06dcfdb3f0ff473306f70b9729
                 echo "\">
             ";
             }
-            // line 13
+            // line 21
             echo "            <hr>
         </div>
-            <div class=\"raw\">
-                ";
-            // line 16
+        <div class=\"raw\">
+            ";
+            // line 24
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable($this->getAttribute($context["article"], "tags", array()));
             $context['_iterated'] = false;
             foreach ($context['_seq'] as $context["_key"] => $context["tag"]) {
-                // line 17
-                echo "                    <a href=\"";
+                // line 25
+                echo "                <a href=\"";
                 echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("tag_blog", array("id" => $this->getAttribute($context["tag"], "id", array()))), "html", null, true);
                 echo "\"><p class=\"btn btn-primary\">";
                 echo twig_escape_filter($this->env, $this->getAttribute($context["tag"], "titre", array()), "html", null, true);
                 echo " <span class=\"badge\">";
-                echo twig_escape_filter($this->env, ($context["nbtag"] ?? $this->getContext($context, "nbtag")), "html", null, true);
+                echo twig_escape_filter($this->env, $this->getAttribute(($context["pagination"] ?? $this->getContext($context, "pagination")), "getTotalItemCount", array()), "html", null, true);
                 echo "</span></p></a>
-                ";
+            ";
                 $context['_iterated'] = true;
             }
             if (!$context['_iterated']) {
-                // line 19
-                echo "                    <p>Pas de tag</p>
-                ";
+                // line 27
+                echo "                <p>Pas de tag</p>
+            ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['tag'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 21
-            echo "            </div>
+            // line 29
+            echo "        </div>
     ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 23
-        echo "            <div class=\"navigation\">
-    ";
-        // line 24
+        // line 31
+        echo "        <div class=\"navigation\">
+            ";
+        // line 32
         echo $this->env->getExtension('Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension')->render($this->env, ($context["pagination"] ?? $this->getContext($context, "pagination")));
         echo "
-</div>
+        </div>
+            
 ";
         
-        $__internal_22e5f04da7957e7a505054bb6ca2ed98134f1f8a7d5b8da4d7a42faaceb37870->leave($__internal_22e5f04da7957e7a505054bb6ca2ed98134f1f8a7d5b8da4d7a42faaceb37870_prof);
+        $__internal_288c751f468c69d7fc6aa0661dfb29cd01b49727f1306534c743f45bd81d9a75->leave($__internal_288c751f468c69d7fc6aa0661dfb29cd01b49727f1306534c743f45bd81d9a75_prof);
 
         
-        $__internal_6915d164909db38ab9aebb0b79f7e6fa1f998cfc87e5f81769ddb09f7464c12d->leave($__internal_6915d164909db38ab9aebb0b79f7e6fa1f998cfc87e5f81769ddb09f7464c12d_prof);
+        $__internal_cbad85b613d54c22a794be1d376fb090f4b59ab0f7add775a20ba08aff0993e1->leave($__internal_cbad85b613d54c22a794be1d376fb090f4b59ab0f7add775a20ba08aff0993e1_prof);
 
     }
 
@@ -164,7 +181,7 @@ class __TwigTemplate_2ec0cd6c8012da68b68c55fd55a2d8c9b06dcfdb3f0ff473306f70b9729
 
     public function getDebugInfo()
     {
-        return array (  143 => 24,  140 => 23,  133 => 21,  126 => 19,  114 => 17,  109 => 16,  104 => 13,  96 => 11,  93 => 10,  90 => 9,  86 => 8,  80 => 7,  77 => 6,  73 => 5,  70 => 4,  61 => 3,  41 => 2,  11 => 1,);
+        return array (  159 => 32,  156 => 31,  149 => 29,  142 => 27,  130 => 25,  125 => 24,  120 => 21,  112 => 19,  109 => 18,  106 => 17,  102 => 16,  96 => 15,  93 => 14,  89 => 13,  82 => 9,  74 => 8,  70 => 6,  61 => 5,  41 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -178,8 +195,16 @@ class __TwigTemplate_2ec0cd6c8012da68b68c55fd55a2d8c9b06dcfdb3f0ff473306f70b9729
     public function getSourceContext()
     {
         return new Twig_Source("{% extends \":blog:layout.html.twig\" %}
+
 {% block title %} {{ parent() }} - lol!{% endblock %}
+
 {% block body_layout %}
+
+    <ul class=\"list-unstyled\">
+        <li {% if pagination.isSorted('a.titre') %} class=\"sorted\"{% endif %}><span class=\"glyphicon glyphicon-sort-by-alphabet\"></span>{{ knp_pagination_sortable(pagination, 'Titre', 'a.titre') }}</li>|
+        <li><span class=\"glyphicon glyphicon-sort-by-order\"></span>{{ knp_pagination_sortable(pagination, 'Date', ['a.date']) }}
+        </li>
+    </ul>
 
     {% for article in pagination %}
         <div class=\"row\">
@@ -191,17 +216,18 @@ class __TwigTemplate_2ec0cd6c8012da68b68c55fd55a2d8c9b06dcfdb3f0ff473306f70b9729
             {% endif %}
             <hr>
         </div>
-            <div class=\"raw\">
-                {% for tag in article.tags %}
-                    <a href=\"{{ path('tag_blog', {id:tag.id}) }}\"><p class=\"btn btn-primary\">{{ tag.titre }} <span class=\"badge\">{{ nbtag }}</span></p></a>
-                {% else %}
-                    <p>Pas de tag</p>
-                {% endfor %}
-            </div>
+        <div class=\"raw\">
+            {% for tag in article.tags %}
+                <a href=\"{{ path('tag_blog', {id:tag.id}) }}\"><p class=\"btn btn-primary\">{{ tag.titre }} <span class=\"badge\">{{ pagination.getTotalItemCount }}</span></p></a>
+            {% else %}
+                <p>Pas de tag</p>
+            {% endfor %}
+        </div>
     {% endfor %}
-            <div class=\"navigation\">
-    {{ knp_pagination_render(pagination) }}
-</div>
+        <div class=\"navigation\">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+            
 {% endblock %}", ":blog:tag.html.twig", "C:\\xampp\\htdocs\\symfony\\app/Resources\\views/blog/tag.html.twig");
     }
 }

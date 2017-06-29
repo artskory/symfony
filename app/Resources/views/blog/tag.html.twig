@@ -1,6 +1,14 @@
 {% extends ":blog:layout.html.twig" %}
+
 {% block title %} {{ parent() }} - lol!{% endblock %}
+
 {% block body_layout %}
+
+    <ul class="list-unstyled">
+        <li {% if pagination.isSorted('a.titre') %} class="sorted"{% endif %}><span class="glyphicon glyphicon-sort-by-alphabet"></span>{{ knp_pagination_sortable(pagination, 'Titre', 'a.titre') }}</li>|
+        <li><span class="glyphicon glyphicon-sort-by-order"></span>{{ knp_pagination_sortable(pagination, 'Date', ['a.date']) }}
+        </li>
+    </ul>
 
     {% for article in pagination %}
         <div class="row">
@@ -12,15 +20,16 @@
             {% endif %}
             <hr>
         </div>
-            <div class="raw">
-                {% for tag in article.tags %}
-                    <a href="{{ path('tag_blog', {id:tag.id}) }}"><p class="btn btn-primary">{{ tag.titre }} <span class="badge">{{ nbtag }}</span></p></a>
-                {% else %}
-                    <p>Pas de tag</p>
-                {% endfor %}
-            </div>
+        <div class="raw">
+            {% for tag in article.tags %}
+                <a href="{{ path('tag_blog', {id:tag.id}) }}"><p class="btn btn-primary">{{ tag.titre }} <span class="badge">{{ pagination.getTotalItemCount }}</span></p></a>
+            {% else %}
+                <p>Pas de tag</p>
+            {% endfor %}
+        </div>
     {% endfor %}
-            <div class="navigation">
-    {{ knp_pagination_render(pagination) }}
-</div>
+        <div class="navigation">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+            
 {% endblock %}

@@ -118,7 +118,69 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'OC\\PlatformBundle\\Controller\\AnnonceController::indexAction',  '_route' => 'oc_platform',);
         }
 
-        if (0 === strpos($pathinfo, '/blog')) {
+        if (0 === strpos($pathinfo, '/admin/tag')) {
+            // admin_tag_index
+            if ('/admin/tag' === $trimmedPathinfo) {
+                if ('GET' !== $canonicalMethod) {
+                    $allow[] = 'GET';
+                    goto not_admin_tag_index;
+                }
+
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'admin_tag_index');
+                }
+
+                return array (  '_controller' => 'AppBundle\\Controller\\TagController::indexAction',  '_route' => 'admin_tag_index',);
+            }
+            not_admin_tag_index:
+
+            // admin_tag_new
+            if ('/admin/tag/new' === $pathinfo) {
+                if (!in_array($canonicalMethod, array('GET', 'POST'))) {
+                    $allow = array_merge($allow, array('GET', 'POST'));
+                    goto not_admin_tag_new;
+                }
+
+                return array (  '_controller' => 'AppBundle\\Controller\\TagController::newAction',  '_route' => 'admin_tag_new',);
+            }
+            not_admin_tag_new:
+
+            // admin_tag_show
+            if (preg_match('#^/admin/tag/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if ('GET' !== $canonicalMethod) {
+                    $allow[] = 'GET';
+                    goto not_admin_tag_show;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_tag_show')), array (  '_controller' => 'AppBundle\\Controller\\TagController::showAction',));
+            }
+            not_admin_tag_show:
+
+            // admin_tag_edit
+            if (preg_match('#^/admin/tag/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                if (!in_array($canonicalMethod, array('GET', 'POST'))) {
+                    $allow = array_merge($allow, array('GET', 'POST'));
+                    goto not_admin_tag_edit;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_tag_edit')), array (  '_controller' => 'AppBundle\\Controller\\TagController::editAction',));
+            }
+            not_admin_tag_edit:
+
+            // admin_tag_delete
+            if (preg_match('#^/admin/tag/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if ('DELETE' !== $canonicalMethod) {
+                    $allow[] = 'DELETE';
+                    goto not_admin_tag_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_tag_delete')), array (  '_controller' => 'AppBundle\\Controller\\TagController::deleteAction',));
+            }
+            not_admin_tag_delete:
+
+        }
+
+        elseif (0 === strpos($pathinfo, '/blog')) {
             // blog
             if (preg_match('#^/blog(?:/(?P<p>\\d+))?$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'blog')), array (  'p' => 1,  '_controller' => 'AppBundle\\Controller\\BlogController::indexAction',));

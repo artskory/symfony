@@ -15,11 +15,11 @@ class __TwigTemplate_87b20b44006e0d1f9edb78a6a9637fe81cd99864e155a06fa2fa94199cb
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_c21a3d7be64677e48e033e1a9284f4222532d08e3cc9c264b1e38789aa5b4ed0 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_c21a3d7be64677e48e033e1a9284f4222532d08e3cc9c264b1e38789aa5b4ed0->enter($__internal_c21a3d7be64677e48e033e1a9284f4222532d08e3cc9c264b1e38789aa5b4ed0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "blog/footer.html.twig"));
+        $__internal_6095e6926ca10f6ec46184431761097b372c820e62fa9f8fccf4ab5e32ba3d65 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_6095e6926ca10f6ec46184431761097b372c820e62fa9f8fccf4ab5e32ba3d65->enter($__internal_6095e6926ca10f6ec46184431761097b372c820e62fa9f8fccf4ab5e32ba3d65_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "blog/footer.html.twig"));
 
-        $__internal_2047499cbf413132f071ffdb384173d027ee2f46072a5863d8fe77d5e7678c93 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_2047499cbf413132f071ffdb384173d027ee2f46072a5863d8fe77d5e7678c93->enter($__internal_2047499cbf413132f071ffdb384173d027ee2f46072a5863d8fe77d5e7678c93_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "blog/footer.html.twig"));
+        $__internal_5182a4ba26a1c0f5e5622b23d3571f53cf7a2c4e4f572ac6c605bd4d3f68a85f = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_5182a4ba26a1c0f5e5622b23d3571f53cf7a2c4e4f572ac6c605bd4d3f68a85f->enter($__internal_5182a4ba26a1c0f5e5622b23d3571f53cf7a2c4e4f572ac6c605bd4d3f68a85f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "blog/footer.html.twig"));
 
         // line 1
         echo "Dernier articles
@@ -50,10 +50,10 @@ class __TwigTemplate_87b20b44006e0d1f9edb78a6a9637fe81cd99864e155a06fa2fa94199cb
         // line 9
         echo "</div>";
         
-        $__internal_c21a3d7be64677e48e033e1a9284f4222532d08e3cc9c264b1e38789aa5b4ed0->leave($__internal_c21a3d7be64677e48e033e1a9284f4222532d08e3cc9c264b1e38789aa5b4ed0_prof);
+        $__internal_6095e6926ca10f6ec46184431761097b372c820e62fa9f8fccf4ab5e32ba3d65->leave($__internal_6095e6926ca10f6ec46184431761097b372c820e62fa9f8fccf4ab5e32ba3d65_prof);
 
         
-        $__internal_2047499cbf413132f071ffdb384173d027ee2f46072a5863d8fe77d5e7678c93->leave($__internal_2047499cbf413132f071ffdb384173d027ee2f46072a5863d8fe77d5e7678c93_prof);
+        $__internal_5182a4ba26a1c0f5e5622b23d3571f53cf7a2c4e4f572ac6c605bd4d3f68a85f->leave($__internal_5182a4ba26a1c0f5e5622b23d3571f53cf7a2c4e4f572ac6c605bd4d3f68a85f_prof);
 
     }
 
