@@ -1,6 +1,6 @@
 <?php
 
-/* KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig */
+/* @KnpPaginator/Pagination/twitter_bootstrap_v3_pagination.html.twig */
 class __TwigTemplate_24f263de963f5af8f8efc1d3f892cf9b0389b2ab00786ce5c720d4eebfc488d7 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -15,11 +15,11 @@ class __TwigTemplate_24f263de963f5af8f8efc1d3f892cf9b0389b2ab00786ce5c720d4eebfc
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_cdd4c84e958e0b4527f4f014d31122d291a16986b3fc3f7bd8f7f8fae561ff98 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_cdd4c84e958e0b4527f4f014d31122d291a16986b3fc3f7bd8f7f8fae561ff98->enter($__internal_cdd4c84e958e0b4527f4f014d31122d291a16986b3fc3f7bd8f7f8fae561ff98_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig"));
+        $__internal_3f6eb212302d973e874ff22009f4beb563241001805d3b933a28b2df1398fb62 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_3f6eb212302d973e874ff22009f4beb563241001805d3b933a28b2df1398fb62->enter($__internal_3f6eb212302d973e874ff22009f4beb563241001805d3b933a28b2df1398fb62_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@KnpPaginator/Pagination/twitter_bootstrap_v3_pagination.html.twig"));
 
-        $__internal_7aadf08a5b287c700a9d17505ce38409a5fb11da7409684471d7983d0b45dee3 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_7aadf08a5b287c700a9d17505ce38409a5fb11da7409684471d7983d0b45dee3->enter($__internal_7aadf08a5b287c700a9d17505ce38409a5fb11da7409684471d7983d0b45dee3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig"));
+        $__internal_61b55885492ea4d3b2dc9a0675dbe5a96df5ec3e6a41cc0138b184432f40a5d0 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_61b55885492ea4d3b2dc9a0675dbe5a96df5ec3e6a41cc0138b184432f40a5d0->enter($__internal_61b55885492ea4d3b2dc9a0675dbe5a96df5ec3e6a41cc0138b184432f40a5d0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@KnpPaginator/Pagination/twitter_bootstrap_v3_pagination.html.twig"));
 
         // line 16
         echo "
@@ -195,16 +195,16 @@ class __TwigTemplate_24f263de963f5af8f8efc1d3f892cf9b0389b2ab00786ce5c720d4eebfc
 ";
         }
         
-        $__internal_cdd4c84e958e0b4527f4f014d31122d291a16986b3fc3f7bd8f7f8fae561ff98->leave($__internal_cdd4c84e958e0b4527f4f014d31122d291a16986b3fc3f7bd8f7f8fae561ff98_prof);
+        $__internal_3f6eb212302d973e874ff22009f4beb563241001805d3b933a28b2df1398fb62->leave($__internal_3f6eb212302d973e874ff22009f4beb563241001805d3b933a28b2df1398fb62_prof);
 
         
-        $__internal_7aadf08a5b287c700a9d17505ce38409a5fb11da7409684471d7983d0b45dee3->leave($__internal_7aadf08a5b287c700a9d17505ce38409a5fb11da7409684471d7983d0b45dee3_prof);
+        $__internal_61b55885492ea4d3b2dc9a0675dbe5a96df5ec3e6a41cc0138b184432f40a5d0->leave($__internal_61b55885492ea4d3b2dc9a0675dbe5a96df5ec3e6a41cc0138b184432f40a5d0_prof);
 
     }
 
     public function getTemplateName()
     {
-        return "KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig";
+        return "@KnpPaginator/Pagination/twitter_bootstrap_v3_pagination.html.twig";
     }
 
     public function isTraitable()
@@ -312,6 +312,6 @@ class __TwigTemplate_24f263de963f5af8f8efc1d3f892cf9b0389b2ab00786ce5c720d4eebfc
     {% endif %}
     </ul>
 {% endif %}
-", "KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig", "C:\\xampp\\htdocs\\symfony\\app\\Resources\\KnpPaginatorBundle\\views\\Pagination\\twitter_bootstrap_v3_pagination.html.twig");
+", "@KnpPaginator/Pagination/twitter_bootstrap_v3_pagination.html.twig", "C:\\xampp\\htdocs\\symfony\\app\\Resources\\KnpPaginatorBundle\\views\\Pagination\\twitter_bootstrap_v3_pagination.html.twig");
     }
 }

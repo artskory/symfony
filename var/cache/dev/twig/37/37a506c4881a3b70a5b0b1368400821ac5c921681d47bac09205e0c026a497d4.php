@@ -15,11 +15,11 @@ class __TwigTemplate_c8a30f8973ebd396a1f29129eef6e8462c7ef81f8700128ff88c17df552
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_30b2610eb7ee18c346a6a669533b195acd8eebdafe1d44373830169a87e84841 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_30b2610eb7ee18c346a6a669533b195acd8eebdafe1d44373830169a87e84841->enter($__internal_30b2610eb7ee18c346a6a669533b195acd8eebdafe1d44373830169a87e84841_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig"));
+        $__internal_afc5b58dc9cd0d5eaa57862d3199681f2920474d814683e549f3db0e9c58b33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_afc5b58dc9cd0d5eaa57862d3199681f2920474d814683e549f3db0e9c58b33e->enter($__internal_afc5b58dc9cd0d5eaa57862d3199681f2920474d814683e549f3db0e9c58b33e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig"));
 
-        $__internal_7cf7071a0f4cd4059151650514605dc442db01e93877b1df24ceda9bac60e9b2 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_7cf7071a0f4cd4059151650514605dc442db01e93877b1df24ceda9bac60e9b2->enter($__internal_7cf7071a0f4cd4059151650514605dc442db01e93877b1df24ceda9bac60e9b2_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig"));
+        $__internal_33213b9cc36d9cecc48773572a819d163d6abaa46eb3c1ca649dd4be5b3bf7af = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_33213b9cc36d9cecc48773572a819d163d6abaa46eb3c1ca649dd4be5b3bf7af->enter($__internal_33213b9cc36d9cecc48773572a819d163d6abaa46eb3c1ca649dd4be5b3bf7af_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig"));
 
         // line 16
         echo "
@@ -37,7 +37,7 @@ class __TwigTemplate_c8a30f8973ebd396a1f29129eef6e8462c7ef81f8700128ff88c17df552
             <a rel=\"prev\" href=\"";
                 // line 22
                 echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath(($context["route"] ?? $this->getContext($context, "route")), twig_array_merge(($context["query"] ?? $this->getContext($context, "query")), array(($context["pageParameterName"] ?? $this->getContext($context, "pageParameterName")) => ($context["previous"] ?? $this->getContext($context, "previous"))))), "html", null, true);
-                echo "\">←";
+                echo "\">&larr;";
                 echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("label_previous", array(), "KnpPaginatorBundle"), "html", null, true);
                 echo "</a>
         </li>
@@ -45,7 +45,7 @@ class __TwigTemplate_c8a30f8973ebd396a1f29129eef6e8462c7ef81f8700128ff88c17df552
             } else {
                 // line 25
                 echo "        <li class=\"disabled\">
-            <span>←";
+            <span>&larr;";
                 // line 26
                 echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("label_previous", array(), "KnpPaginatorBundle"), "html", null, true);
                 echo "</span>
@@ -195,10 +195,10 @@ class __TwigTemplate_c8a30f8973ebd396a1f29129eef6e8462c7ef81f8700128ff88c17df552
 ";
         }
         
-        $__internal_30b2610eb7ee18c346a6a669533b195acd8eebdafe1d44373830169a87e84841->leave($__internal_30b2610eb7ee18c346a6a669533b195acd8eebdafe1d44373830169a87e84841_prof);
+        $__internal_afc5b58dc9cd0d5eaa57862d3199681f2920474d814683e549f3db0e9c58b33e->leave($__internal_afc5b58dc9cd0d5eaa57862d3199681f2920474d814683e549f3db0e9c58b33e_prof);
 
         
-        $__internal_7cf7071a0f4cd4059151650514605dc442db01e93877b1df24ceda9bac60e9b2->leave($__internal_7cf7071a0f4cd4059151650514605dc442db01e93877b1df24ceda9bac60e9b2_prof);
+        $__internal_33213b9cc36d9cecc48773572a819d163d6abaa46eb3c1ca649dd4be5b3bf7af->leave($__internal_33213b9cc36d9cecc48773572a819d163d6abaa46eb3c1ca649dd4be5b3bf7af_prof);
 
     }
 
@@ -248,11 +248,11 @@ class __TwigTemplate_c8a30f8973ebd396a1f29129eef6e8462c7ef81f8700128ff88c17df552
 
     {% if previous is defined %}
         <li>
-            <a rel=\"prev\" href=\"{{ path(route, query|merge({(pageParameterName): previous})) }}\">←{{ 'label_previous'|trans({}, 'KnpPaginatorBundle') }}</a>
+            <a rel=\"prev\" href=\"{{ path(route, query|merge({(pageParameterName): previous})) }}\">&larr;{{ 'label_previous'|trans({}, 'KnpPaginatorBundle') }}</a>
         </li>
     {% else %}
         <li class=\"disabled\">
-            <span>←{{ 'label_previous'|trans({}, 'KnpPaginatorBundle') }}</span>
+            <span>&larr;{{ 'label_previous'|trans({}, 'KnpPaginatorBundle') }}</span>
         </li>
     {% endif %}
 

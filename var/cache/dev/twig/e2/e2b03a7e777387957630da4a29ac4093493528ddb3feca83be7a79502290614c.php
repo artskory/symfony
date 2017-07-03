@@ -15,11 +15,11 @@ class __TwigTemplate_bf6ed3b24b0339d4f25956740e039953d39f9772dca97613c3b005408d6
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_67258379b51055e150479c74036f84c3966587577bedfc1af08318d9cbba63dc = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_67258379b51055e150479c74036f84c3966587577bedfc1af08318d9cbba63dc->enter($__internal_67258379b51055e150479c74036f84c3966587577bedfc1af08318d9cbba63dc_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Twig/exception.css.twig"));
+        $__internal_61ff9cb6ae7f98463672a2841e682324a17ca4fb313f5017e11ff8f9a0d80375 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_61ff9cb6ae7f98463672a2841e682324a17ca4fb313f5017e11ff8f9a0d80375->enter($__internal_61ff9cb6ae7f98463672a2841e682324a17ca4fb313f5017e11ff8f9a0d80375_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Twig/exception.css.twig"));
 
-        $__internal_76ffb38101a2ba21cff3f52e39647a1528347d7e2c176ebf317b3dbd34ba6aa3 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_76ffb38101a2ba21cff3f52e39647a1528347d7e2c176ebf317b3dbd34ba6aa3->enter($__internal_76ffb38101a2ba21cff3f52e39647a1528347d7e2c176ebf317b3dbd34ba6aa3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Twig/exception.css.twig"));
+        $__internal_c231642ac72712b09fb4b78e0961c415e9e443d9ddb75b7c947bfb04d65250ab = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_c231642ac72712b09fb4b78e0961c415e9e443d9ddb75b7c947bfb04d65250ab->enter($__internal_c231642ac72712b09fb4b78e0961c415e9e443d9ddb75b7c947bfb04d65250ab_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Twig/exception.css.twig"));
 
         // line 1
         echo "html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background-color:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:700}dfn{font-style:italic}h1{margin:.67em 0;font-size:2em}mark{color:#000;background:#ff0}small{font-size:80%}sub,sup{position:relative;font-size:75%;line-height:0;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{height:0;-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{margin:0;font:inherit;color:inherit}button{overflow:visible}button,select{text-transform:none}button,html input[type=\"button\"],input[type=\"reset\"],input[type=\"submit\"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{padding:0;border:0}input{line-height:normal}input[type=\"checkbox\"],input[type=\"radio\"]{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding:0}input[type=\"number\"]::-webkit-inner-spin-button,input[type=\"number\"]::-webkit-outer-spin-button{height:auto}input[type=\"search\"]{-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box;-webkit-appearance:textfield}input[type=\"search\"]::-webkit-search-cancel-button,input[type=\"search\"]::-webkit-search-decoration{-webkit-appearance:none}fieldset{padding:.35em .625em .75em;margin:0 2px;border:1px solid silver}legend{padding:0;border:0}textarea{overflow:auto}optgroup{font-weight:700}table{border-spacing:0;border-collapse:collapse}td,th{padding:0}
@@ -147,10 +147,10 @@ header .container { display: flex; justify-content: space-between; }
 }
 ";
         
-        $__internal_67258379b51055e150479c74036f84c3966587577bedfc1af08318d9cbba63dc->leave($__internal_67258379b51055e150479c74036f84c3966587577bedfc1af08318d9cbba63dc_prof);
+        $__internal_61ff9cb6ae7f98463672a2841e682324a17ca4fb313f5017e11ff8f9a0d80375->leave($__internal_61ff9cb6ae7f98463672a2841e682324a17ca4fb313f5017e11ff8f9a0d80375_prof);
 
         
-        $__internal_76ffb38101a2ba21cff3f52e39647a1528347d7e2c176ebf317b3dbd34ba6aa3->leave($__internal_76ffb38101a2ba21cff3f52e39647a1528347d7e2c176ebf317b3dbd34ba6aa3_prof);
+        $__internal_c231642ac72712b09fb4b78e0961c415e9e443d9ddb75b7c947bfb04d65250ab->leave($__internal_c231642ac72712b09fb4b78e0961c415e9e443d9ddb75b7c947bfb04d65250ab_prof);
 
     }
 

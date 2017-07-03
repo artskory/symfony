@@ -15,25 +15,26 @@ class __TwigTemplate_fc830053b86515af27ead861d70226bc0416c21c3f799944399f82def9b
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_e64a151b7ff26e06fbc6dea268b9110b4bd28b6abaf32d464ecc544bbaf675b0 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_e64a151b7ff26e06fbc6dea268b9110b4bd28b6abaf32d464ecc544bbaf675b0->enter($__internal_e64a151b7ff26e06fbc6dea268b9110b4bd28b6abaf32d464ecc544bbaf675b0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "blog/formulaire.html.twig"));
+        $__internal_9946205cc7b94c14300652e29f47f56befb9aa1a112e9a29db6b85814c0f0ec1 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_9946205cc7b94c14300652e29f47f56befb9aa1a112e9a29db6b85814c0f0ec1->enter($__internal_9946205cc7b94c14300652e29f47f56befb9aa1a112e9a29db6b85814c0f0ec1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "blog/formulaire.html.twig"));
 
-        $__internal_bdf6f8d8300a858f98b4434248f3448c6f3d6516d41cd6b68ea5458ee6c7a2f8 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_bdf6f8d8300a858f98b4434248f3448c6f3d6516d41cd6b68ea5458ee6c7a2f8->enter($__internal_bdf6f8d8300a858f98b4434248f3448c6f3d6516d41cd6b68ea5458ee6c7a2f8_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "blog/formulaire.html.twig"));
+        $__internal_95d4718615d139dcfb3731cebfae337479d7b865f206c572733a51a56c365c83 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_95d4718615d139dcfb3731cebfae337479d7b865f206c572733a51a56c365c83->enter($__internal_95d4718615d139dcfb3731cebfae337479d7b865f206c572733a51a56c365c83_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "blog/formulaire.html.twig"));
 
         // line 1
         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->setTheme(($context["form"] ?? $this->getContext($context, "form")), array(0 => "ckeditor.html.twig"));
         // line 2
         echo "
+
 ";
-        // line 3
+        // line 4
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute($this->getAttribute(($context["app"] ?? $this->getContext($context, "app")), "session", array()), "flashbag", array()), "get", array(0 => "erreur"), "method"));
         foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
-            // line 4
+            // line 5
             echo "    <p class=\"allert allert-danger\">
         ";
-            // line 5
+            // line 6
             echo twig_escape_filter($this->env, $context["message"], "html", null, true);
             echo "
     </p>
@@ -42,44 +43,44 @@ class __TwigTemplate_fc830053b86515af27ead861d70226bc0416c21c3f799944399f82def9b
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['message'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 8
+        // line 9
         echo "
 ";
-        // line 9
+        // line 10
         echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock(($context["form"] ?? $this->getContext($context, "form")), 'form_start');
         echo "
 ";
-        // line 11
+        // line 12
         echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "titre", array()), 'label', array("label" => "Votre titre"));
         echo "
     ";
-        // line 12
+        // line 13
         echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "titre", array()), 'errors');
         echo "
     ";
-        // line 13
+        // line 14
         echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "titre", array()), 'widget');
         echo " 
     
 ";
-        // line 16
+        // line 17
         echo "
 ";
-        // line 17
+        // line 18
         echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "date", array()), 'row', array("attr" => array("class" => "js-datepicker")));
         echo " ";
-        // line 18
+        // line 19
         echo "
 ";
-        // line 19
+        // line 20
         echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock(($context["form"] ?? $this->getContext($context, "form")), 'form_end');
         echo "
 ";
         
-        $__internal_e64a151b7ff26e06fbc6dea268b9110b4bd28b6abaf32d464ecc544bbaf675b0->leave($__internal_e64a151b7ff26e06fbc6dea268b9110b4bd28b6abaf32d464ecc544bbaf675b0_prof);
+        $__internal_9946205cc7b94c14300652e29f47f56befb9aa1a112e9a29db6b85814c0f0ec1->leave($__internal_9946205cc7b94c14300652e29f47f56befb9aa1a112e9a29db6b85814c0f0ec1_prof);
 
         
-        $__internal_bdf6f8d8300a858f98b4434248f3448c6f3d6516d41cd6b68ea5458ee6c7a2f8->leave($__internal_bdf6f8d8300a858f98b4434248f3448c6f3d6516d41cd6b68ea5458ee6c7a2f8_prof);
+        $__internal_95d4718615d139dcfb3731cebfae337479d7b865f206c572733a51a56c365c83->leave($__internal_95d4718615d139dcfb3731cebfae337479d7b865f206c572733a51a56c365c83_prof);
 
     }
 
@@ -95,7 +96,7 @@ class __TwigTemplate_fc830053b86515af27ead861d70226bc0416c21c3f799944399f82def9b
 
     public function getDebugInfo()
     {
-        return array (  75 => 19,  72 => 18,  69 => 17,  66 => 16,  61 => 13,  57 => 12,  53 => 11,  49 => 9,  46 => 8,  37 => 5,  34 => 4,  30 => 3,  27 => 2,  25 => 1,);
+        return array (  76 => 20,  73 => 19,  70 => 18,  67 => 17,  62 => 14,  58 => 13,  54 => 12,  50 => 10,  47 => 9,  38 => 6,  35 => 5,  31 => 4,  27 => 2,  25 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -109,6 +110,7 @@ class __TwigTemplate_fc830053b86515af27ead861d70226bc0416c21c3f799944399f82def9b
     public function getSourceContext()
     {
         return new Twig_Source("{% form_theme form 'ckeditor.html.twig' %}
+
 
 {% for message in app.session.flashbag.get('erreur') %}
     <p class=\"allert allert-danger\">

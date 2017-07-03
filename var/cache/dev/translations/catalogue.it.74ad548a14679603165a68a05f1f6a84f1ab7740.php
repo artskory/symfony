@@ -86,6 +86,25 @@ $catalogue = new MessageCatalogue('it', array (
     'This form should not contain extra fields.' => 'Questo form non dovrebbe contenere nessun campo extra.',
     'The uploaded file was too large. Please try to upload a smaller file.' => 'Il file caricato è troppo grande. Per favore caricare un file più piccolo.',
     'The CSRF token is invalid. Please try to resubmit the form.' => 'Il token CSRF non è valido. Provare a reinviare il form.',
+    'fos_user.username.already_used' => 'Username già in uso.',
+    'fos_user.username.blank' => 'Si prega di inserire un username.',
+    'fos_user.username.short' => 'Username troppo breve.',
+    'fos_user.username.long' => 'Username troppo lungo.',
+    'fos_user.email.already_used' => 'Email già in uso.',
+    'fos_user.email.blank' => 'Si prega di inserire una email.',
+    'fos_user.email.short' => 'Email troppo breve.',
+    'fos_user.email.long' => 'Email troppo lunga.',
+    'fos_user.email.invalid' => 'Email non valida.',
+    'fos_user.password.blank' => 'Si prega di inserire una password.',
+    'fos_user.password.short' => 'Password troppo breve.',
+    'fos_user.password.mismatch' => 'Le due password non coincidono.',
+    'fos_user.new_password.blank' => 'Si prega di inserire nuovamente la password.',
+    'fos_user.new_password.short' => 'Nuova password troppo breve.',
+    'fos_user.current_password.invalid' => 'Password non valida.',
+    'fos_user.group.blank' => 'Si prega di inserire un nome.',
+    'fos_user.group.short' => 'Nome troppo breve.',
+    'fos_user.group.long' => 'Nome troppo lungo.',
+    'fos_group.name.already_used' => 'Nome già in uso.',
   ),
   'security' => 
   array (
@@ -110,6 +129,69 @@ $catalogue = new MessageCatalogue('it', array (
   array (
     'label_previous' => 'Precedente',
     'label_next' => 'Successivo',
+  ),
+  'FOSUserBundle' => 
+  array (
+    'group.edit.submit' => 'Aggiorna gruppo',
+    'group.show.name' => 'Nome gruppo',
+    'group.new.submit' => 'Crea gruppo',
+    'group.flash.updated' => 'Il gruppo è stato aggiornato.',
+    'group.flash.created' => 'Il gruppo è stato creato.',
+    'group.flash.deleted' => 'Il gruppo è stato cancellato.',
+    'security.login.username' => 'Username',
+    'security.login.password' => 'Password',
+    'security.login.remember_me' => 'Ricordami',
+    'security.login.submit' => 'Login',
+    'profile.show.username' => 'Username',
+    'profile.show.email' => 'Email',
+    'profile.edit.submit' => 'Aggiorna',
+    'profile.flash.updated' => 'Il profilo è stato aggiornato.',
+    'change_password.submit' => 'Cambia password',
+    'change_password.flash.success' => 'La password è stata cambiata.',
+    'registration.check_email' => 'Un\'email è stata inviata a %email%. Contiene il link d\'attivazione che devi utilizzare per attivare il tuo account.',
+    'registration.confirmed' => 'Congratulazioni %username%, il tuo account è confermato.',
+    'registration.back' => 'Torna alla pagina d\'origine.',
+    'registration.submit' => 'Registra',
+    'registration.flash.user_created' => 'Utente creato con successo.',
+    'registration.email.subject' => 'Benvenuto %username%!',
+    'registration.email.message' => 'Ciao %username%!
+
+Per terminare la validazione del tuo account visita %confirmationUrl%
+
+Questo link può essere utilizzato solo una volta per verificare il tuo account.
+
+Saluti,
+il Team.
+',
+    'resetting.check_email' => 'È stata inviata un\'email con il link d\'attivazione che devi utilizzare per il reset della password.
+Nota: è possibile richiedere una password entro %tokenLifetime% ore.
+
+Se non ricevi un\'email verifica la cartella di spam o riprova.
+',
+    'resetting.request.username' => 'Username o indirizzo email',
+    'resetting.request.submit' => 'Password reset',
+    'resetting.reset.submit' => 'Cambia password',
+    'resetting.flash.success' => 'La password è stata resettata.',
+    'resetting.email.subject' => 'Password reset',
+    'resetting.email.message' => 'Ciao %username%!
+
+Per resettare la password visita %confirmationUrl%
+
+Saluti,
+il Team.
+',
+    'layout.logout' => 'Logout',
+    'layout.login' => 'Login',
+    'layout.register' => 'Registra',
+    'layout.logged_in_as' => 'Collegato come %username%',
+    'form.group_name' => 'Nome gruppo',
+    'form.username' => 'Username',
+    'form.email' => 'Email',
+    'form.current_password' => 'Password corrente',
+    'form.password' => 'Password',
+    'form.password_confirmation' => 'Ripeti password',
+    'form.new_password' => 'Nuova password',
+    'form.new_password_confirmation' => 'Ripeti password',
   ),
 ));
 
@@ -197,6 +279,25 @@ $catalogueFr = new MessageCatalogue('fr', array (
     'This form should not contain extra fields.' => 'Ce formulaire ne doit pas contenir des champs supplémentaires.',
     'The uploaded file was too large. Please try to upload a smaller file.' => 'Le fichier téléchargé est trop volumineux. Merci d\'essayer d\'envoyer un fichier plus petit.',
     'The CSRF token is invalid. Please try to resubmit the form.' => 'Le jeton CSRF est invalide. Veuillez renvoyer le formulaire.',
+    'fos_user.username.already_used' => 'Le nom d\'utilisateur est déjà utilisé.',
+    'fos_user.username.blank' => 'Entrez un nom d\'utilisateur s\'il vous plait.',
+    'fos_user.username.short' => 'Le nom d\'utilisateur est trop court.',
+    'fos_user.username.long' => 'Le nom d\'utilisateur est trop long.',
+    'fos_user.email.already_used' => 'L\'adresse e-mail est déjà utilisée.',
+    'fos_user.email.blank' => 'Entrez une adresse e-mail s\'il vous plait.',
+    'fos_user.email.short' => 'L\'adresse e-mail est trop courte.',
+    'fos_user.email.long' => 'L\'adresse e-mail est trop longue.',
+    'fos_user.email.invalid' => 'L\'adresse e-mail est invalide.',
+    'fos_user.password.blank' => 'Entrez un mot de passe s\'il vous plait.',
+    'fos_user.password.short' => 'Le mot de passe est trop court.',
+    'fos_user.password.mismatch' => 'Les deux mots de passe ne sont pas identiques.',
+    'fos_user.new_password.blank' => 'Entrez un nouveau mot de passe s\'il vous plait.',
+    'fos_user.new_password.short' => 'Le nouveau mot de passe est trop court.',
+    'fos_user.current_password.invalid' => 'Le mot de passe est invalide.',
+    'fos_user.group.blank' => 'Entrez un nom s\'il vous plait.',
+    'fos_user.group.short' => 'Le nom est trop court.',
+    'fos_user.group.long' => 'Le nom est trop long.',
+    'fos_group.name.already_used' => 'Le nom est déjà utilisé.',
   ),
   'security' => 
   array (
@@ -219,8 +320,71 @@ $catalogueFr = new MessageCatalogue('fr', array (
   ),
   'KnpPaginatorBundle' => 
   array (
-    'label_previous' => 'Préc.',
-    'label_next' => 'Sui.',
+    'label_previous' => 'Précé.',
+    'label_next' => 'Suiv.',
+  ),
+  'FOSUserBundle' => 
+  array (
+    'group.edit.submit' => 'Mettre à jour le groupe',
+    'group.show.name' => 'Nom du groupe',
+    'group.new.submit' => 'Créer le groupe',
+    'group.flash.updated' => 'Le groupe a été mis à jour.',
+    'group.flash.created' => 'Le groupe a été créé.',
+    'group.flash.deleted' => 'Le groupe a été supprimé.',
+    'security.login.username' => 'Nom d\'utilisateur',
+    'security.login.password' => 'Mot de passe',
+    'security.login.remember_me' => 'Se souvenir de moi',
+    'security.login.submit' => 'Connexion',
+    'profile.show.username' => 'Nom d\'utilisateur',
+    'profile.show.email' => 'Adresse e-mail',
+    'profile.edit.submit' => 'Mettre à jour',
+    'profile.flash.updated' => 'Le profil a été mis à jour.',
+    'change_password.submit' => 'Modifier le mot de passe',
+    'change_password.flash.success' => 'Le mot de passe a été modifié.',
+    'registration.check_email' => 'Un e-mail a été envoyé à l\'adresse %email%. Il contient un lien d\'activation sur lequel il vous faudra cliquer afin d\'activer votre compte.',
+    'registration.confirmed' => 'Félicitations %username%, votre compte est maintenant activé.',
+    'registration.back' => 'Retour à la page d\'origine.',
+    'registration.submit' => 'Créer un compte',
+    'registration.flash.user_created' => 'L\'utilisateur a été créé avec succès.',
+    'registration.email.subject' => 'Bienvenue %username% !',
+    'registration.email.message' => 'Bonjour %username% !
+
+Pour valider votre compte utilisateur, merci de vous rendre sur %confirmationUrl%
+
+Ce lien ne peut être utilisé qu\'une seule fois pour valider votre compte.
+
+Cordialement,
+L\'équipe
+',
+    'resetting.check_email' => 'Un e-mail a été envoyé. Il contient un lien sur lequel il vous faudra cliquer pour réinitialiser votre mot de passe.
+Remarque : Vous ne pouvez demander un nouveau mot de passe que toutes les %tokenLifetime% heures.
+
+Si vous ne recevez pas un email, vérifiez votre dossier spam ou essayez à nouveau.
+',
+    'resetting.request.username' => 'Nom d\'utilisateur ou adresse e-mail',
+    'resetting.request.submit' => 'Réinitialiser le mot de passe',
+    'resetting.reset.submit' => 'Modifier le mot de passe',
+    'resetting.flash.success' => 'Le mot de passe a été réinitialisé avec succès.',
+    'resetting.email.subject' => 'Réinitialisation de votre mot de passe',
+    'resetting.email.message' => 'Bonjour %username% !
+
+Pour réinitialiser votre mot de passe, merci de vous rendre sur %confirmationUrl%
+
+Cordialement,
+L\'équipe
+',
+    'layout.logout' => 'Déconnexion',
+    'layout.login' => 'Connexion',
+    'layout.register' => 'Inscription',
+    'layout.logged_in_as' => 'Connecté en tant que %username%',
+    'form.group_name' => 'Nom du groupe',
+    'form.username' => 'Nom d\'utilisateur',
+    'form.email' => 'Adresse e-mail',
+    'form.current_password' => 'Mot de passe actuel',
+    'form.password' => 'Mot de passe',
+    'form.password_confirmation' => 'Répéter le mot de passe',
+    'form.new_password' => 'Nouveau mot de passe',
+    'form.new_password_confirmation' => 'Répéter le nouveau mot de passe',
   ),
 ));
 $catalogue->addFallbackCatalogue($catalogueFr);

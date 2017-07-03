@@ -15,11 +15,11 @@ class __TwigTemplate_72dbff01aae75481abc4b54d259f0aa39fc8ee8abdb3ad955e773bb0eae
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_d1f7379069708dc9170ededea032121f5509671fce4b67c6ce5c998b59d9a64c = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_d1f7379069708dc9170ededea032121f5509671fce4b67c6ce5c998b59d9a64c->enter($__internal_d1f7379069708dc9170ededea032121f5509671fce4b67c6ce5c998b59d9a64c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", ":blog:footer.html.twig"));
+        $__internal_2d533fb943ee94b11a9871952e97baee1133ca653a5ea99b9cc959b5e6ad8dc9 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_2d533fb943ee94b11a9871952e97baee1133ca653a5ea99b9cc959b5e6ad8dc9->enter($__internal_2d533fb943ee94b11a9871952e97baee1133ca653a5ea99b9cc959b5e6ad8dc9_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", ":blog:footer.html.twig"));
 
-        $__internal_84caaaf10a684981c5856c04dbb6158d0895465156e59cdc95495c5105567225 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_84caaaf10a684981c5856c04dbb6158d0895465156e59cdc95495c5105567225->enter($__internal_84caaaf10a684981c5856c04dbb6158d0895465156e59cdc95495c5105567225_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", ":blog:footer.html.twig"));
+        $__internal_4fe77d5dd6b44decdf9acc1bd52cb44a9634ba107756d42da2402e6587208abb = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_4fe77d5dd6b44decdf9acc1bd52cb44a9634ba107756d42da2402e6587208abb->enter($__internal_4fe77d5dd6b44decdf9acc1bd52cb44a9634ba107756d42da2402e6587208abb_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", ":blog:footer.html.twig"));
 
         // line 1
         echo "Dernier articles
@@ -50,10 +50,10 @@ class __TwigTemplate_72dbff01aae75481abc4b54d259f0aa39fc8ee8abdb3ad955e773bb0eae
         // line 9
         echo "</div>";
         
-        $__internal_d1f7379069708dc9170ededea032121f5509671fce4b67c6ce5c998b59d9a64c->leave($__internal_d1f7379069708dc9170ededea032121f5509671fce4b67c6ce5c998b59d9a64c_prof);
+        $__internal_2d533fb943ee94b11a9871952e97baee1133ca653a5ea99b9cc959b5e6ad8dc9->leave($__internal_2d533fb943ee94b11a9871952e97baee1133ca653a5ea99b9cc959b5e6ad8dc9_prof);
 
         
-        $__internal_84caaaf10a684981c5856c04dbb6158d0895465156e59cdc95495c5105567225->leave($__internal_84caaaf10a684981c5856c04dbb6158d0895465156e59cdc95495c5105567225_prof);
+        $__internal_4fe77d5dd6b44decdf9acc1bd52cb44a9634ba107756d42da2402e6587208abb->leave($__internal_4fe77d5dd6b44decdf9acc1bd52cb44a9634ba107756d42da2402e6587208abb_prof);
 
     }
 

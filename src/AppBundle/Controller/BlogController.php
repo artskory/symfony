@@ -15,6 +15,7 @@ use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\HttpException;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
  * @Route("/blog")
@@ -108,20 +109,25 @@ class BlogController extends Controller
         
         $article = $ar->getArticleByIdWithLeftJoin($id);
         
+        $user = $this->getUser();
+        
+        $article->getUser($user);
+        
         // Formulaire Note
         
         $commentaire = new Commentaire();
         $commentaire->setArticle($article);
         
         $form = $this->createForm(CommentaireType::class, $commentaire, 
-                ['action'=> $this->generateUrl('ajouter_commentaire_blog',
-                        ['id'=>$id])
-                    ]);
+            ['action'=> $this->generateUrl('ajouter_commentaire_blog',
+                ['id'=>$id])
+            ]);
         
         
         return $this->render('blog/detail.html.twig', [
             'article'=>$article,
-            'form' => $form->createView()]);
+            'form' => $form->createView(),
+            'user' => $user]);
     }
     
     /**
@@ -179,9 +185,12 @@ class BlogController extends Controller
             
             $article = $ar->find($id);
             
+            $user = $this->getUser();
+            
             $commentaire = new Commentaire();
             $commentaire->setArticle($article);
             $commentaire->setContenu($contenu);
+            $commentaire->setUser($user);
             
             $em->persist($commentaire);
             
@@ -194,7 +203,8 @@ class BlogController extends Controller
                     'commentaire'=> [
                         'id' =>$commentaire->getId(),
                         'contenu' => $commentaire->getContenu(),
-                        'date' => $commentaire->getDate()->format('Y-m-d')
+                        'date' => $commentaire->getDate()->format('Y-m-d'),
+                        'user' => $user->getUsername()
                         ]
                     ]);
 
@@ -211,9 +221,14 @@ class BlogController extends Controller
     }
     
     /**
+     * 
+     * @Security("has_role('ROLE_ADMIN')")
+     * 
      * @Route("/ajouter", name="ajouter")
      */
-    public function ajouterAction(Request $request) {
+    public function ajouterAction(Request $request, Article $article) {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'Get out b****');
+
         $article = new Article();
         
         $form = $this->createForm(ArticleType::class, $article);
@@ -276,6 +291,7 @@ class BlogController extends Controller
     }
     
     /**
+     * @Security("is_granted('ROLE_SUPER_ADMIN') or user == article.getUser()")
      * @Route("/modifier/{id}", name="modifier_blog", 
      * requirements={"id": "\d+"})
      */

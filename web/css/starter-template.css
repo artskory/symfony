@@ -70,3 +70,7 @@ ul li{
 .th-center{
      text-align: center;
 }
+
+.form-login > input{
+    margin-bottom: 10px;
+}

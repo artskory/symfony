@@ -100,6 +100,14 @@ class Article
      * @var string
      */
     private $extrait;
+    
+    /**
+     * @var User
+     *
+     * @ORM\ManyToOne(targetEntity="User")
+     * 
+     */
+    private $user;
 
     //pour rendre la liaison obligatoire
     //@ORM\JoinColumn(nullable=false)
@@ -359,5 +367,29 @@ class Article
      */
     public function updateDateModification() {
         $this->setDateModification(new \DateTime);
+    }
+
+    /**
+     * Set user
+     *
+     * @param \AppBundle\Entity\User $user
+     *
+     * @return Article
+     */
+    public function setUser(\AppBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

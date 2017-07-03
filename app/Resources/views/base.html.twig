@@ -42,7 +42,20 @@
             <li {% if 'blog' in app.request.attributes.get('_route') %} class="active"{% endif %} ><a href="{{ path('blog') }}">Blog</a></li>
             <li {% if 'catalogue' in app.request.attributes.get('_route') %} class="active"{% endif %}><a href="{{ path('catalogue') }}">Catalogue</a></li>
             <li {% if 'oc_platform' in app.request.attributes.get('_route') %} class="active"{% endif %}><a href="{{ path('oc_platform') }}">Annonce</a></li>
+            
+            {% if is_granted('ROLE_USER') %}
+                
             <li {% if 'ajouter' in app.request.attributes.get('_route') %} class="active"{% endif %} ><a href="{{ url('ajouter') }}"><span class="glyphicon glyphicon-plus"></span> Ajouter</a></li>
+            <li {% if 'fos_user_security_logout' in app.request.attributes.get('_route') %} class="active"{% endif %} ><a href="{{ url('fos_user_security_logout') }}"><span class="glyphicon glyphicon-flash"></span> Logout</a></li>
+            
+            <li>
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <a href=''>| Bonjour {{ app.user.username }}</a>
+            {% endif %}</li>
+            {% else %}
+                
+            <li {% if 'fos_user_security_login' in app.request.attributes.get('_route') %} class="active"{% endif %} ><a href="{{ url('fos_user_security_login') }}"><span class="glyphicon glyphicon-off"></span> Login</a></li>
+            {% endif %}
           </ul>
         </div><!--/.nav-collapse -->
       </div>
