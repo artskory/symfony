@@ -201,6 +201,7 @@ the Team.
     'texte.ciao' => 'byebye',
     'texte.personnel' => 'Hello %nom%!',
     'texte.pluriel' => 'there is %count% apple |]1,+Inf] there is %count% apples',
+    'menu.home' => 'Home',
   ),
 ));
 
@@ -402,6 +403,7 @@ L\'équipe
     'texte.ciao' => 'Au revoir',
     'texte.personnel' => 'Bonjour %nom% !',
     'texte.pluriel' => 'il y a %count% pomme |]1,+Inf] il y a %count% pommes',
+    'menu.home' => 'Acceuil',
   ),
 ));
 $catalogue->addFallbackCatalogue($catalogueFr);

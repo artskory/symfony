@@ -37,6 +37,7 @@
               Wordpresque by Symfony</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
+            {{ knp_menu_render('AppBundle:Builder:mainMenu') }}
           <ul class="nav navbar-nav">
             <li {% if 'homepage' in app.request.attributes.get('_route') %} class="active"{% endif %} ><a href="{{ path('homepage') }}">Home</a></li>
             <li {% if 'blog' in app.request.attributes.get('_route') %} class="active"{% endif %} ><a href="{{ path('blog') }}">Blog</a></li>

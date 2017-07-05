@@ -55,7 +55,8 @@
          
                 <div class="mt15">
                     <ul class="list-unstyled">
-                        <li><a href={{ path('modifier_blog', {slug:article.slug}) }}><span class="glyphicon glyphicon-edit"></span> Modifier</a></li>
+                        <li><a href={{ path('modifier_blog', {id:article.id, _locale:'fr'}) }}><span class="glyphicon glyphicon-edit"></span> Modifier | FR</a></li>
+                        <li><a href={{ path('modifier_blog', {id:article.id, _locale:'en'}) }}><span class="glyphicon glyphicon-edit"></span> Modifier | EN</a></li>
                         <li><a href={{ path('supprimer_blog', {id:article.id}) }}><span class="glyphicon glyphicon-remove"></span> Supprimer</a></li>
                     </ul>
                 </div>

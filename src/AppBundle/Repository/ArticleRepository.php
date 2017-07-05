@@ -46,7 +46,7 @@ class ArticleRepository extends EntityRepository
                 ->orderBy('a.date', 'DESC');
         
         $query = $qb->getQuery();
-        
+        $query->setHint(\Gedmo\Translatable\TranslatableListener::HINT_INNER_JOIN, true);
         $article = $query->getOneOrNullResult();
         
         return $article;

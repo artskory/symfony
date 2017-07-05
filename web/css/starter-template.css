@@ -23,6 +23,9 @@ img.logo {
     margin-right: 12px;
     margin-top: -5px;
 }
+img{
+    width: 30%;
+}
 .mt15 {
     margin-top: 15px;
 }

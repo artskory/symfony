@@ -200,6 +200,7 @@ L\'équipe
     'texte.ciao' => 'Au revoir',
     'texte.personnel' => 'Bonjour %nom% !',
     'texte.pluriel' => 'il y a %count% pomme |]1,+Inf] il y a %count% pommes',
+    'menu.home' => 'Acceuil',
   ),
 ));
 

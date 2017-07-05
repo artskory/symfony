@@ -21,6 +21,7 @@
       <parameter key="OCPlatformBundle">OC\PlatformBundle\OCPlatformBundle</parameter>
       <parameter key="FOSUserBundle">FOS\UserBundle\FOSUserBundle</parameter>
       <parameter key="StofDoctrineExtensionsBundle">Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle</parameter>
+      <parameter key="KnpMenuBundle">Knp\Bundle\MenuBundle\KnpMenuBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -87,6 +88,11 @@
         <parameter key="parent">null</parameter>
         <parameter key="path">C:\xampp\htdocs\symfony\vendor\stof\doctrine-extensions-bundle</parameter>
         <parameter key="namespace">Stof\DoctrineExtensionsBundle</parameter>
+      </parameter>
+      <parameter key="KnpMenuBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">C:\xampp\htdocs\symfony\vendor\knplabs\knp-menu-bundle</parameter>
+        <parameter key="namespace">Knp\Bundle\MenuBundle</parameter>
       </parameter>
       <parameter key="DebugBundle" type="collection">
         <parameter key="parent">null</parameter>
@@ -439,6 +445,23 @@
     <parameter key="stof_doctrine_extensions.listener.softdeleteable.class">Gedmo\SoftDeleteable\SoftDeleteableListener</parameter>
     <parameter key="stof_doctrine_extensions.listener.uploadable.class">Gedmo\Uploadable\UploadableListener</parameter>
     <parameter key="stof_doctrine_extensions.listener.reference_integrity.class">Gedmo\ReferenceIntegrity\ReferenceIntegrityListener</parameter>
+    <parameter key="knp_menu.factory.class">Knp\Menu\MenuFactory</parameter>
+    <parameter key="knp_menu.factory_extension.routing.class">Knp\Menu\Integration\Symfony\RoutingExtension</parameter>
+    <parameter key="knp_menu.helper.class">Knp\Menu\Twig\Helper</parameter>
+    <parameter key="knp_menu.matcher.class">Knp\Menu\Matcher\Matcher</parameter>
+    <parameter key="knp_menu.menu_provider.chain.class">Knp\Menu\Provider\ChainProvider</parameter>
+    <parameter key="knp_menu.menu_provider.container_aware.class">Knp\Bundle\MenuBundle\Provider\ContainerAwareProvider</parameter>
+    <parameter key="knp_menu.menu_provider.builder_alias.class">Knp\Bundle\MenuBundle\Provider\BuilderAliasProvider</parameter>
+    <parameter key="knp_menu.renderer_provider.class">Knp\Bundle\MenuBundle\Renderer\ContainerAwareProvider</parameter>
+    <parameter key="knp_menu.renderer.list.class">Knp\Menu\Renderer\ListRenderer</parameter>
+    <parameter key="knp_menu.renderer.list.options" type="collection"/>
+    <parameter key="knp_menu.listener.voters.class">Knp\Bundle\MenuBundle\EventListener\VoterInitializerListener</parameter>
+    <parameter key="knp_menu.voter.router.class">Knp\Menu\Matcher\Voter\RouteVoter</parameter>
+    <parameter key="knp_menu.twig.extension.class">Knp\Menu\Twig\MenuExtension</parameter>
+    <parameter key="knp_menu.renderer.twig.class">Knp\Menu\Renderer\TwigRenderer</parameter>
+    <parameter key="knp_menu.renderer.twig.options" type="collection"/>
+    <parameter key="knp_menu.renderer.twig.template">KnpMenuBundle::menu.html.twig</parameter>
+    <parameter key="knp_menu.default_renderer">twig</parameter>
     <parameter key="web_profiler.debug_toolbar.position">bottom</parameter>
     <parameter key="web_profiler.debug_toolbar.intercept_redirects">false</parameter>
     <parameter key="web_profiler.debug_toolbar.mode">2</parameter>
@@ -559,6 +582,7 @@
       <tag name="form.type"/>
     </service>
     <service id="AppBundle\Listener\MaintenanceListener" class="AppBundle\Listener\MaintenanceListener" public="false" autowire="true" autoconfigure="true"/>
+    <service id="AppBundle\Menu\Builder" class="AppBundle\Menu\Builder" public="false" autowire="true" autoconfigure="true"/>
     <service id="AppBundle\Service\Extrait" class="AppBundle\Service\Extrait" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="session"/>
       <argument>150</argument>
@@ -771,7 +795,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>Pn2ZZSvtH0lFYQzOgMpjee</argument>
+      <argument>nDmO5MeJ6Xrg6kWEu-j9Il</argument>
       <argument>C:\xampp\htdocs\symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -781,7 +805,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>Pn2ZZSvtH0lFYQzOgMpjee</argument>
+      <argument>nDmO5MeJ6Xrg6kWEu-j9Il</argument>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
@@ -2011,6 +2035,14 @@
         <argument>0</argument>
       </call>
       <call method="addListener">
+        <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_menu.listener.voters"/>
+          <argument>onKernelRequest</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
         <argument>kernel.response</argument>
         <argument type="collection">
           <argument type="service" id="response_listener"/>
@@ -3227,12 +3259,12 @@
     </service>
     <service id="security.authentication.listener.anonymous.main" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
       <argument type="service" id="security.token_storage"/>
-      <argument>595ccccd82d119.08228398</argument>
+      <argument>595cf6e438fb27.79038132</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument type="service" id="security.authentication.manager"/>
     </service>
     <service id="security.authentication.provider.anonymous.main" class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-      <argument>595ccccd82d119.08228398</argument>
+      <argument>595cf6e438fb27.79038132</argument>
     </service>
     <service id="security.exception_listener.main" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
       <argument type="service" id="security.token_storage"/>
@@ -3365,6 +3397,9 @@
         <argument type="service" id="knp_paginator.twig.extension.pagination"/>
       </call>
       <call method="addExtension">
+        <argument type="service" id="knp_menu.twig.extension"/>
+      </call>
+      <call method="addExtension">
         <argument type="service" id="twig.extension.dump"/>
       </call>
       <call method="addExtension">
@@ -3453,6 +3488,10 @@
       <call method="addPath">
         <argument>C:\xampp\htdocs\symfony\vendor\friendsofsymfony\user-bundle/Resources/views</argument>
         <argument>FOSUser</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\xampp\htdocs\symfony\vendor\knplabs\knp-menu-bundle/Resources/views</argument>
+        <argument>KnpMenu</argument>
       </call>
       <call method="addPath">
         <argument>C:\xampp\htdocs\symfony\vendor\symfony\symfony\src\Symfony\Bundle\DebugBundle/Resources/views</argument>
@@ -3618,6 +3657,10 @@
         <argument>FOSUser</argument>
       </call>
       <call method="addPath">
+        <argument>C:\xampp\htdocs\symfony\vendor\knplabs\knp-menu-bundle/Resources/views</argument>
+        <argument>KnpMenu</argument>
+      </call>
+      <call method="addPath">
         <argument>C:\xampp\htdocs\symfony\vendor\symfony\symfony\src\Symfony\Bundle\DebugBundle/Resources/views</argument>
         <argument>Debug</argument>
       </call>
@@ -3630,6 +3673,9 @@
       </call>
       <call method="addPath">
         <argument>C:\xampp\htdocs\symfony\vendor\symfony\symfony\src\Symfony\Bridge\Twig/Resources/views/Form</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\xampp\htdocs\symfony\vendor\knplabs\knp-menu\src\Knp\Menu/Resources/views</argument>
       </call>
     </service>
     <service id="templating.engine.twig" class="Symfony\Bundle\TwigBundle\TwigEngine" public="false">
@@ -4449,6 +4495,87 @@
       <argument type="service" id="stof_doctrine_extensions.listener.uploadable"/>
       <argument>Stof\DoctrineExtensionsBundle\Uploadable\UploadedFileInfo</argument>
     </service>
+    <service id="knp_menu.factory" class="Knp\Menu\MenuFactory">
+      <call method="addExtension">
+        <argument type="service" id="knp_menu.factory_extension.routing"/>
+        <argument>0</argument>
+      </call>
+    </service>
+    <service id="knp_menu.factory_extension.routing" class="Knp\Menu\Integration\Symfony\RoutingExtension" public="false">
+      <tag name="knp_menu.factory_extension"/>
+      <argument type="service" id="router.default"/>
+    </service>
+    <service id="knp_menu.helper" class="Knp\Menu\Twig\Helper" public="false">
+      <argument type="service" id="knp_menu.renderer_provider"/>
+      <argument type="service" id="knp_menu.menu_provider.chain"/>
+      <argument type="service" id="knp_menu.manipulator"/>
+      <argument type="service" id="knp_menu.matcher"/>
+    </service>
+    <service id="knp_menu.matcher" class="Knp\Menu\Matcher\Matcher">
+      <call method="addVoter">
+        <argument type="service" id="knp_menu.voter.router"/>
+      </call>
+    </service>
+    <service id="knp_menu.menu_provider.chain" class="Knp\Menu\Provider\ChainProvider" public="false">
+      <argument type="collection">
+        <argument type="service" id="knp_menu.menu_provider.container_aware"/>
+        <argument type="service" id="knp_menu.menu_provider.builder_service"/>
+        <argument type="service" id="knp_menu.menu_provider.builder_alias"/>
+      </argument>
+    </service>
+    <service id="knp_menu.menu_provider.container_aware" class="Knp\Bundle\MenuBundle\Provider\ContainerAwareProvider" public="false">
+      <tag name="knp_menu.provider"/>
+      <argument type="service" id="service_container"/>
+      <argument type="collection"/>
+    </service>
+    <service id="knp_menu.menu_provider.builder_service" class="Knp\Bundle\MenuBundle\Provider\BuilderServiceProvider" public="false">
+      <tag name="knp_menu.provider"/>
+      <argument type="service" id="service_container"/>
+      <argument type="collection"/>
+    </service>
+    <service id="knp_menu.menu_provider.builder_alias" class="Knp\Bundle\MenuBundle\Provider\BuilderAliasProvider" public="false">
+      <tag name="knp_menu.provider"/>
+      <argument type="service" id="kernel"/>
+      <argument type="service" id="service_container"/>
+      <argument type="service" id="knp_menu.factory"/>
+    </service>
+    <service id="knp_menu.renderer_provider" class="Knp\Bundle\MenuBundle\Renderer\ContainerAwareProvider">
+      <argument type="service" id="service_container"/>
+      <argument>twig</argument>
+      <argument type="collection">
+        <argument key="list">knp_menu.renderer.list</argument>
+        <argument key="twig">knp_menu.renderer.twig</argument>
+      </argument>
+    </service>
+    <service id="knp_menu.renderer.list" class="Knp\Menu\Renderer\ListRenderer">
+      <tag name="knp_menu.renderer" alias="list"/>
+      <argument type="service" id="knp_menu.matcher"/>
+      <argument type="collection"/>
+      <argument>UTF-8</argument>
+    </service>
+    <service id="knp_menu.listener.voters" class="Knp\Bundle\MenuBundle\EventListener\VoterInitializerListener">
+      <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest"/>
+      <call method="addVoter">
+        <argument type="service" id="knp_menu.voter.router"/>
+      </call>
+    </service>
+    <service id="knp_menu.voter.router" class="Knp\Menu\Matcher\Voter\RouteVoter">
+      <tag name="knp_menu.voter" request="1"/>
+    </service>
+    <service id="knp_menu.manipulator" class="Knp\Menu\Util\MenuManipulator" public="false"/>
+    <service id="knp_menu.twig.extension" class="Knp\Menu\Twig\MenuExtension" public="false">
+      <tag name="twig.extension"/>
+      <argument type="service" id="knp_menu.helper"/>
+      <argument type="service" id="knp_menu.matcher"/>
+      <argument type="service" id="knp_menu.manipulator"/>
+    </service>
+    <service id="knp_menu.renderer.twig" class="Knp\Menu\Renderer\TwigRenderer">
+      <tag name="knp_menu.renderer" alias="twig"/>
+      <argument type="service" id="twig"/>
+      <argument>KnpMenuBundle::menu.html.twig</argument>
+      <argument type="service" id="knp_menu.matcher"/>
+      <argument type="collection"/>
+    </service>
     <service id="twig.extension.dump" class="Symfony\Bridge\Twig\Extension\DumpExtension" public="false">
       <tag name="twig.extension"/>
       <argument type="service" id="var_dumper.cloner"/>
@@ -4974,7 +5101,7 @@
     <service id="cache.system.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>3lozzWEQj2</argument>
       <argument>0</argument>
-      <argument>Pn2ZZSvtH0lFYQzOgMpjee</argument>
+      <argument>nDmO5MeJ6Xrg6kWEu-j9Il</argument>
       <argument>C:\xampp\htdocs\symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -4982,7 +5109,7 @@
     <service id="cache.validator.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>huuUBD+ixv</argument>
       <argument>0</argument>
-      <argument>Pn2ZZSvtH0lFYQzOgMpjee</argument>
+      <argument>nDmO5MeJ6Xrg6kWEu-j9Il</argument>
       <argument>C:\xampp\htdocs\symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -4990,7 +5117,7 @@
     <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>CwPLSWaNrQ</argument>
       <argument>0</argument>
-      <argument>Pn2ZZSvtH0lFYQzOgMpjee</argument>
+      <argument>nDmO5MeJ6Xrg6kWEu-j9Il</argument>
       <argument>C:\xampp\htdocs\symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -4998,7 +5125,7 @@
     <service id="cache.annotations.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>H0eCdKkYQ7</argument>
       <argument>0</argument>
-      <argument>Pn2ZZSvtH0lFYQzOgMpjee</argument>
+      <argument>nDmO5MeJ6Xrg6kWEu-j9Il</argument>
       <argument>C:\xampp\htdocs\symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -5108,6 +5235,7 @@
     <service id="console.command.symfony_bundle_webserverbundle_command_serverstopcommand" alias="web_server.command.server_stop"/>
     <service id="console.command.symfony_bundle_webserverbundle_command_serverstatuscommand" alias="web_server.command.server_status"/>
     <service id="twig.loader" alias="twig.loader.filesystem"/>
+    <service id="knp_menu.menu_provider" alias="knp_menu.menu_provider.chain"/>
     <service id="service_locator.b8d2046fb854cde05549fb309e1a80d2" alias="1_055c79055550466080602d325abb870ca69f1fb9b7a217f299624f9c95ff8370" public="false"/>
     <service id="translator.logging.inner" alias="translator.default" public="false"/>
     <service id="translator.data_collector.inner" alias="translator.logging" public="false"/>

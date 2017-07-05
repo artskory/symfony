@@ -160,7 +160,7 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
 
         // modifier_blog
-        if (preg_match('#^/(?P<_locale>fr|en)/blog/modifier/(?P<slug>[a-zA-Z1-9\\-_/]+)$#s', $pathinfo, $matches)) {
+        if (preg_match('#^/(?P<_locale>fr|en)/blog/modifier/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'modifier_blog')), array (  '_locale' => 'fr',  '_controller' => 'AppBundle\\Controller\\BlogController::modifierAction',));
         }
 

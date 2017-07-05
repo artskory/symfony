@@ -4,3 +4,5 @@ texte:
     ciao: byebye
     personnel: Hello %nom%!
     pluriel: there is %count% apple |]1,+Inf] there is %count% apples
+menu:
+    home: Home

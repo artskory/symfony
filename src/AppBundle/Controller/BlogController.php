@@ -218,12 +218,14 @@ class BlogController extends Controller {
      * @Route("/ajouter", name="ajouter")
      */
     public function ajouterAction(Request $request) {
+        if ($request->getLocale() != $this->getParameter('locale')){
+            return $this->redirectToRoute('ajouter', ['_locale' => $this->getParameter('locale')]);
+        }
         $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'Get out b****');
 
         $article = new Article();
 
         $form = $this->createForm(ArticleType::class, $article);
-
         // traitement
 
         $form->handleRequest($request);
@@ -288,16 +290,16 @@ class BlogController extends Controller {
 
     /**
      * 
-     * @Route("/modifier/{slug}", name="modifier_blog", 
-     * requirements={"slug": "[a-zA-Z1-9\-_/]+"})
+     * @Route("/modifier/{id}", name="modifier_blog")
+     *
      */
     public function modifierAction(Request $request, $id) {
 
-         $article = new Article();
+        //$article = new Article();
 
         $em = $this->getDoctrine()->getManager();
         $article = $em->getRepository('AppBundle:Article')->find($id);
-
+        dump($article);
 
         $form = $this->createForm(ArticleType::class, $article);
         // traitement
@@ -327,7 +329,7 @@ class BlogController extends Controller {
 
                 $session->getFlashBag()->add('succes', 'Article modifier');
 
-                return $this->redirectToRoute('detail_blog', ['id' => $article->getId()]);
+                return $this->redirectToRoute('detail_blog', ['slug' => $article->getSlug()]);
             } catch (\Exception $e) {
 
                 $session->getFlashBag()->add('erreur', 'Probleme lors de l\'enregistrement' . $e->getMessage());
