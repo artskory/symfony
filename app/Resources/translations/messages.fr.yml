@@ -1,0 +1,6 @@
+message: Bonjour !
+texte:
+    hello: Bonjour tout le monde
+    ciao: Au revoir
+    personnel: Bonjour %nom% !
+    pluriel: il y a %count% pomme |]1,+Inf] il y a %count% pommes

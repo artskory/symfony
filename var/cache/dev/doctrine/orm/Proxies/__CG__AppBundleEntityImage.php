@@ -64,10 +64,10 @@ class Image extends \AppBundle\Entity\Image implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'AppBundle\\Entity\\Image' . "\0" . 'id', '' . "\0" . 'AppBundle\\Entity\\Image' . "\0" . 'url', '' . "\0" . 'AppBundle\\Entity\\Image' . "\0" . 'alt'];
+            return ['__isInitialized__', '' . "\0" . 'AppBundle\\Entity\\Image' . "\0" . 'id', '' . "\0" . 'AppBundle\\Entity\\Image' . "\0" . 'url', '' . "\0" . 'AppBundle\\Entity\\Image' . "\0" . 'alt', '' . "\0" . 'AppBundle\\Entity\\Image' . "\0" . 'name'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'AppBundle\\Entity\\Image' . "\0" . 'id', '' . "\0" . 'AppBundle\\Entity\\Image' . "\0" . 'url', '' . "\0" . 'AppBundle\\Entity\\Image' . "\0" . 'alt'];
+        return ['__isInitialized__', '' . "\0" . 'AppBundle\\Entity\\Image' . "\0" . 'id', '' . "\0" . 'AppBundle\\Entity\\Image' . "\0" . 'url', '' . "\0" . 'AppBundle\\Entity\\Image' . "\0" . 'alt', '' . "\0" . 'AppBundle\\Entity\\Image' . "\0" . 'name'];
     }
 
     /**
@@ -230,6 +230,39 @@ class Image extends \AppBundle\Entity\Image implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAlt', []);
 
         return parent::getAlt();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setName($name)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', [$name]);
+
+        return parent::setName($name);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getName()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getName', []);
+
+        return parent::getName();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function baseUrl()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'baseUrl', []);
+
+        return parent::baseUrl();
     }
 
 }

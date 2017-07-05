@@ -194,6 +194,14 @@ the Team.
     'form.new_password' => 'New password',
     'form.new_password_confirmation' => 'Repeat new password',
   ),
+  'messages' => 
+  array (
+    'message' => 'Hello!',
+    'texte.hello' => 'Hello world',
+    'texte.ciao' => 'byebye',
+    'texte.personnel' => 'Hello %nom%!',
+    'texte.pluriel' => 'there is %count% apple |]1,+Inf] there is %count% apples',
+  ),
 ));
 
 $catalogueFr = new MessageCatalogue('fr', array (
@@ -386,6 +394,14 @@ L\'équipe
     'form.password_confirmation' => 'Répéter le mot de passe',
     'form.new_password' => 'Nouveau mot de passe',
     'form.new_password_confirmation' => 'Répéter le nouveau mot de passe',
+  ),
+  'messages' => 
+  array (
+    'message' => 'Bonjour !',
+    'texte.hello' => 'Bonjour tout le monde',
+    'texte.ciao' => 'Au revoir',
+    'texte.personnel' => 'Bonjour %nom% !',
+    'texte.pluriel' => 'il y a %count% pomme |]1,+Inf] il y a %count% pommes',
   ),
 ));
 $catalogue->addFallbackCatalogue($catalogueFr);

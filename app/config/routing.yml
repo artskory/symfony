@@ -12,3 +12,7 @@ app:
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+    prefix: "/{_locale}"    
+    requirements:
+        _locale: "fr|en"
+    defaults: {"_locale": "fr"}

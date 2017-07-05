@@ -165,6 +165,7 @@
   ':blog:layout.html.twig' => __DIR__.'/../../../app/Resources/views/blog/layout.html.twig',
   ':blog:modifier.html.twig' => __DIR__.'/../../../app/Resources/views/blog/modifier.html.twig',
   ':blog:tag.html.twig' => __DIR__.'/../../../app/Resources/views/blog/tag.html.twig',
+  ':blog:traduction.html.twig' => __DIR__.'/../../../app/Resources/views/blog/traduction.html.twig',
   ':blog:years_archives.html.twig' => __DIR__.'/../../../app/Resources/views/blog/years_archives.html.twig',
   ':catalogue:categorie.html.twig' => __DIR__.'/../../../app/Resources/views/catalogue/categorie.html.twig',
   ':catalogue:detail.html.twig' => __DIR__.'/../../../app/Resources/views/catalogue/detail.html.twig',

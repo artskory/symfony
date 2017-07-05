@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Article
@@ -108,6 +109,12 @@ class Article
      * 
      */
     private $user;
+    
+    /**
+     * @Gedmo\Slug(fields={"titre", "id"})
+     * @ORM\Column(length=128, unique=true)
+     */
+    private $slug;
 
     //pour rendre la liaison obligatoire
     //@ORM\JoinColumn(nullable=false)
@@ -391,5 +398,29 @@ class Article
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Article
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

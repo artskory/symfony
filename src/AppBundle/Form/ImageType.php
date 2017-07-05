@@ -13,7 +13,7 @@ class ImageType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('url')->add('alt');
+        $builder->add('url', \Symfony\Component\Form\Extension\Core\Type\FileType::class, ['mapped' => FALSE])->add('alt');
     }
     
     /**

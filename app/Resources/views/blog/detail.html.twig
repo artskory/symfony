@@ -8,7 +8,7 @@
 
         <p>{{ article.contenu | raw }}</p>
         {% if article.image %}
-            <img src="{{ article.image.url }}" alt="{{ article.image.alt }}">
+            <img src="{{ asset('uploads/'~article.image.baseUrl) }}" alt="{{ article.image.alt }}">
         {% endif %}
         <div class="commentaire">
             <h3 class="t-comment">Commentaires</h3>
@@ -55,7 +55,7 @@
          
                 <div class="mt15">
                     <ul class="list-unstyled">
-                        <li><a href={{ path('modifier_blog', {id:article.id}) }}><span class="glyphicon glyphicon-edit"></span> Modifier</a></li>
+                        <li><a href={{ path('modifier_blog', {slug:article.slug}) }}><span class="glyphicon glyphicon-edit"></span> Modifier</a></li>
                         <li><a href={{ path('supprimer_blog', {id:article.id}) }}><span class="glyphicon glyphicon-remove"></span> Supprimer</a></li>
                     </ul>
                 </div>

@@ -374,6 +374,14 @@ L\'équipe
     'form.new_password' => 'Nouveau mot de passe',
     'form.new_password_confirmation' => 'Répéter le nouveau mot de passe',
   ),
+  'messages' => 
+  array (
+    'message' => 'Bonjour !',
+    'texte.hello' => 'Bonjour tout le monde',
+    'texte.ciao' => 'Au revoir',
+    'texte.personnel' => 'Bonjour %nom% !',
+    'texte.pluriel' => 'il y a %count% pomme |]1,+Inf] il y a %count% pommes',
+  ),
 ));
 $catalogue->addFallbackCatalogue($catalogueFr);
 

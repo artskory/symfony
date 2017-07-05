@@ -7,7 +7,7 @@
 {#index : page n° {{ page }}#}
         {% for article in articles %}
             <div class="row">
-                <h1><a href="{{ path('detail_blog', {id:article.id}) }}">{{ article.titre }}</a></h1>
+                <h1><a href="{{ path('detail_blog', {slug:article.slug}) }}">{{ article.titre }}</a></h1>
                 le <em>{{ article.date | date('d m Y') }}</em>
                 {#<p>{{ article.contenu | raw }}</p> {# raw permet de d'interpreter le #}
                 <p>
@@ -16,7 +16,7 @@
                     {{ article.contenu | extrait }}
                 </p>
                 {% if article.image %}
-                    <img src="{{ article.image.url }}" alt="{{ article.image.alt }}">
+                    <img src="{{ asset('uploads/'~article.image.baseUrl) }}" alt="{{ article.image.alt }}">
                 {% endif %}
                 <div class="raw">
                     {% for tag in article.tags %}

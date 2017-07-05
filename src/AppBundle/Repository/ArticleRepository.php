@@ -32,6 +32,25 @@ class ArticleRepository extends EntityRepository
         
         return $article;
     }
+    public function getArticleBySlugWithLeftJoin($slug) {
+        
+        $qb = $this->createQueryBuilder('a');
+        $qb->leftJoin('a.image', 'i')
+                ->addSelect('i')
+                ->leftJoin('a.commentaires', 'c')
+                ->addSelect('c')
+                ->leftJoin('a.tags', 't')
+                ->addSelect('t')
+                ->where('a.slug = ?1')
+                ->setParameter(1, $slug)
+                ->orderBy('a.date', 'DESC');
+        
+        $query = $qb->getQuery();
+        
+        $article = $query->getOneOrNullResult();
+        
+        return $article;
+    }
     
     public function getArticleWithLeftJoinWithPagination($offset, $limit) {
         
